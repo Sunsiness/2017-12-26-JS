@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // 当输出或获取变量值时，首先看是否是当前作用域的私有变量，如果不是，需要继续往上一级作用域查找；如果上级作用域也没有，那么会继续往上一级作用域查找，直到找到window为止，如果window也不存在，那么就会报错，这样一级一级往上查找，就会形成一个"作用域链"
+    // 私有变量： 1. 看在当前作用域是否被var过； 2.看是否是形参；
+//    var  num =0;
+//    function fn(num) {
+////        var  num =10;
+//        return function () {
+//            console.log(num)// 首先查看当前私有作用域有没有这个变量；// undefined
+//            num =100;
+//        }
+//    };
+//   var  f =  fn(1);
+//   f()
+//
+//    var  num = 0;
+//    var  obj = {
+//        num : 10,
+//        fn : function () {
+//            var num =100;
+//            return function () {
+//                console.log(num);
+//                var num = 200;
+//            }
+//        }
+//    };
+//    obj.fn()();
+
+    var  total = 10;
+    function fn() {
+        var total = 100;
+        return function () {
+            console.log(total)
+        }
+    };
+    var f = fn();
+    f();
+
+    // 上级作用域: 跟函数在哪执行没有任何的关系,和函数在哪定义有关系；在哪个作用域下定义的，那么上级作用域就是谁；
+
+
+
+</script>
+</body>
+</html>
