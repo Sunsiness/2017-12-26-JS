@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //变量提升阶段：在形成作用域之后，先进行变量提升，然后才从上到下执行
+    // 变量提升  : 在当前作用域下， 把带var的和带function进行提前的声明；带var只声明，未定义（赋值）；带function不仅进行提前声明，而且还要进行定义；
+    //    console.log(m);// undefined
+    //    var m = "zhufeng";
+    //    console.log(m);
+
+
+    //    console.log(fn);
+    //    console.log(sum);
+//    function fn(sum) {// fn = xxxfff000;
+        // 当函数执行时，先形成私有作用域，然后形参赋值，然后再进行变量提升；
+        //console.log(sum);//整个函数
+//        var sum = 10;
+//        function sum() {
+//
+//        }
+//    }
+//    fn(100)
+    //console.log(fn);// 整个函数体
+//    var  a;
+//    var b;
+//    var  fn = function () {
+//        var a =10;
+//        b =10;
+//    };
+//    fn()
+
+//    var  a,b,fn = function () {
+//        var a = b = 10;
+//    }
+//    fn();
+//    console.log(a,b)// undefined 10
+//    console.log(fn);// 整个函数体
+    var  fn = 10;
+//    // 当代码加载到这一行时，代码直接跳过；
+    function fn() {// fn = xxxfff000
+        var  a = 10;
+    };
+    console.log(fn);// 10
+</script>
+</body>
+</html>
