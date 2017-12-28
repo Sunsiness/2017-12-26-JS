@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box" style="width:100px;height:100px;background: red"></div>
+<script>
+    // this  ：
+    //    console.log(typeof this);// "object"
+    //    console.log(this);//window
+    //    var  that = 12;
+    //    window.a = 10;
+    // 1. 全局下的this指向window；
+    // 2. 给元素的事件绑定方法，那么这个方法中的this指向被绑定的这个元素；
+    // 3. 看函数执行前面有没有".",有点的
+    // 4.自执行函数中的this永远指向window；
+    // 5.定时器中的this指向window；
+    //    var  div = document.getElementById("box");
+    //    div.onclick = function () {
+    //        console.log(this);
+    //    }
+    //
+
+
+    //    function sum() {
+    //        console.log(this)// 函数执行主体； 谁让这个函数执行的；
+    //    }
+    //    window.sum()
+
+    //    var  obj = {
+    //        num :10,
+    //        fn : function () {
+    //            //console.log(this)// obj
+    //            return function () {
+    //                console.log(this)
+    //            }
+    //        }
+    //    };
+    //    obj.fn()
+    //    var  f = obj.fn;
+    //    f()
+    //    var  f = obj.fn();
+    //    f()
+    //   var  obj = {
+    //       num : 10,
+    //       fn : {
+    //           n:1,
+    // f 存储的是一个函数的空间地址；
+    //           f : function () {
+    //               console.log(this)//obj.fn的属性值；
+    //           }
+    //       }
+    //   };
+    //
+    //obj.fn.f()
+    //
+    //    (function () {
+    //        console.log(this)// window
+    //    })();
+    //    function a() {
+    //        (function () {
+    //            console.log(this)// window
+    //        })();
+    //    }
+    //    a()
+
+    // fn存储的是自执行函数的返回值；
+    //    var obj = {
+    //        fn : (function () {
+    //            console.log(this)
+    //        })()
+    //    };
+    //    obj.fn()// 报错；
+
+    //
+    setTimeout(function () {
+        console.log(this);
+    }, 1000)
+
+
+</script>
+</body>
+</html>
