@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width : 400px;
+            height:300px;
+
+            margin:30px auto;
+        }
+        #tab ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #tab ul li{
+            width : 80px;
+            height:35px;
+            text-align: center;
+            line-height: 35px;
+            margin-right:10px;
+            float:left;
+            border:1px solid #ee44dd;
+            cursor: pointer;
+        }
+        #tab ul li.select{
+            background: #ee44dd;
+        }
+        #tab div{
+            display: none;
+            width:100%;
+            height:265px;
+            line-height: 265px;
+            text-align: center;
+            border:1px solid red;
+        }
+        #tab div.select{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">电视剧</li>
+        <li>综艺</li>
+        <li>电影</li>
+    </ul>
+    <div class="select">七个我</div>
+    <div>非诚勿扰</div>
+    <div>芳华</div>
+</div>
+<script>
+    var oTab = document.getElementById("tab");
+    var oLis = document.getElementsByTagName("li");
+    var oDivs = oTab.getElementsByTagName("div");
+    function changeTab(n) {
+        //console.log(this);// window
+        for(var j =0;j<oLis.length;j++){
+            oLis[j].className = "";
+            oDivs[j].className = "";
+        };
+        oLis[n].className = "select";
+        oDivs[n].className = "select";
+    }
+    // 1. 自定义属性方式实现选项卡；
+//    for(var i=0;i<oLis.length;i++){
+//        oLis[i].index = i;
+//        oLis[i].onclick = function () {
+//            // this --> 当前被绑定的那个元素；
+//            changeTab(this.index)
+//        }
+//    }
+    // 2.闭包，不销毁的作用域储存值
+//
+//    for(var i =0;i<oLis.length;i++){
+//        // onclick 的属性值是自执行函数的返回值；
+//        oLis[i].onclick = (function (j) {
+//            //当加载循环绑定时，自执行函数执行
+//            // 自执行函数当前是不销毁的；每一个作用域中都存储一个私有变量j所存储的值；
+//
+//            return function () {
+//                // 当点击时，执行此处的小函数，继而让changeTab执行；
+//                // 当changeTab执行时，j不是当前作用域的私有变量，所以去上一级作用域查找，上级作用域是自执行函数形成不销毁的作用域；
+//                changeTab(j)
+//            }
+//        })(i)
+//    }
+
+    for(var i=0;i<oLis.length;i++){
+        (function (j) {
+            // 此处作用域也是不销毁的；
+            oLis[j].onclick = function () {
+                changeTab(j)
+            }
+        })(i)
+    }
+    // 自定义属性和闭包两种方式的区别
+    // 自定义是往对象中新增一个键值对
+    // 闭包： 产生三个不销毁的作用域，从性能优化来说，没有自定义属性更优；
+
+
+
+</script>
+<script>
+
+
+
+
+</script>
+</body>
+</html>

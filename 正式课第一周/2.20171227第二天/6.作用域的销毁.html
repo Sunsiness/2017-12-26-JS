@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function fn() {
+//         var a =100;
+//         a ++;
+//         console.log(a)
+//
+//    }
+//    fn();
+//    fn();
+    // 函数每执行一次，会形成新的栈内存；
+
+    //在一般情况下，函数执行完成之后，当前私有作用域会立即销毁；
+    // 作用域销毁，那么当前作用域中存储的基本数据类型值都会随着销毁；
+  // 闭包 ： 储存值；
+    function fn() {
+        var  total  = 100;
+        return function () {
+            console.log(total)// 100
+        }
+    }
+    var  f = fn();
+    fn();
+
+    // 不销毁的作用域
+    // 1. 函数返回一个引用数据类型值；
+    // 2. 函数执行的返回值需要有变量进行接收；
+
+
+   // 不立即销毁：当前作用域还是要销毁的，但是会返回的函数执行完成后，再销毁
+    function fn() {
+        var  total  = 100;
+        return function () {
+            console.log(total)// 100
+        }
+    }
+    fn()();
+
+</script>
+</body>
+</html>

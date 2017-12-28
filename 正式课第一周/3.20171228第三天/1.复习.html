@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 全局作用域 ： 给js提供一个供代码运行的环境；
+    // window
+    // 全局下面定义的变量就是变量；
+
+//    console.log(a);
+//    // 不同点： 全局变量会进行变量提升；
+//    var  a = 100;// 存储到栈内存
+//    b = 10;
+    // 相同点 ： 都是给window新增一个键值对；
+
+    // 私有作用域：
+//    function fn(){
+//        console.log(1)
+//
+//        a = 10;
+//    }
+//    console.log(a);// 100
+//    fn()
+     // console.log(a)// 10
+//
+//    setTimeout(function () {
+//
+//    },1000)
+
+
+    // 变量提升 ：
+//    console.log(num);// 如果变量只声明，没有定义，那么默认存储值就是undefined；
+//    var  num = 100;
+
+    //
+//    console.log(fn());// function 不仅声明，而且还定义；
+//    function sum() {
+//        fn()
+//    }
+//    function fn() {
+//       console.log(1)
+//    };
+
+    //  变量提升的特殊情况
+    // 1. 不管条件是否成立，都要进行变量提升
+        // 1. 在最新版本浏览器，function关键字的只声明不定义
+       // 2. 在老版本浏览器中，function关键字的既声明又定义；
+
+    // 2. 变量提升只发生在等号的左边
+    // 3. 在函数体中，return下面要进行变量提升，return的内容不进行变量提升的；
+    // 4. 如果变量名重复，不再重复声明，但是要重新定义；
+   // 5.  自执行函数定义和执行一起完成；
+//
+//    function fn() {
+//        console.log(num);
+//        sum();
+//        return function () {
+//        };
+//        var num =1000;
+//        function sum() {
+//        }
+//        console.log(num);
+//    }
+
+    // 查找上一级作用域；
+
+//    var  i=100;
+//    function sum() {
+//        var  i=0;
+//        return function () {
+//            console.log(i)// 0
+//            i =0;
+//        }
+//    }
+//   var  f = sum()
+//    f();
+    // 函数上一级作用域跟函数在哪执行没有任何关系，函数在哪定义的上一级作用域就是谁；
+
+
+
+//    (function(){})();
+
+
+    // 堆栈内存
+
+    // 栈内存 ： 提供一个运行环境； 存储基本属性类型值；
+//    var a = "ahu";
+
+    // 全局作用域属于不销毁的作用域
+
+    // 私有作用域
+
+    //
+//    function a() {
+//        //
+//        return  function () {
+//
+////            return function () {
+////
+////            }
+//        }
+//    };
+//    a()();
+//   var  f =  a();
+//   var  g = f();
+//   a();
+    // 不销毁作用域： 1. 返回一个引用数据类型值
+    // 2.需要一个变量接收
+
+
+// var a= 10,b = 11,c =12;
+// function test(a) {
+//     a=1;var b = 2;c=3;
+// }
+// test(10);
+
+// var  a = 10;
+// var b = 11;
+// var c = 12;
+// function test(a) {
+//     a =1;
+//     var b = 2;
+//     c = 3;
+// }
+// test(10);
+
+//    console.log(a);// undefined
+//   if(!("a" in window)){
+//     var a = 1;// window新增一个属性名a;
+// }
+// alert(a)
+    // in   ：判断对象中是否存在这个属性名，存在返回true，不存在返回false；
+//    var  obj = {a:10}
+//    console.log(a in obj);// 报错
+
+
+</script>
+</body>
+</html>

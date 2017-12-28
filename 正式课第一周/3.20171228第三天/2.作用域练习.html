@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+
+     var i = 1;  // 2  // 3  // 4
+     function fn() {
+         return function (n) {
+             console.log(n + i++);
+         }
+     }
+     var f = fn();
+     f(10);// 11
+     fn()(10);// 12
+     f(20);//23
+     fn()(20);//24
+    //
+        var n = 10;
+        var obj = {
+            n: 20,
+            // fn 的属性值是自执行函数的返回值
+            fn: (function (n) {
+                console.log(obj.n)
+                return function () {
+                    console.log(obj.n);// 20
+                }
+            })(obj.n)//=>Uncaught TypeError: Cannot read property 'n' of undefined
+            // 在对象中，不能调用对象自己；因为当开辟好空间地址之后，但是当前obj 还没有被赋值；所以默认存储值是undefined；
+
+            // fn的属性值存储是自执行函数的返回值；
+        };
+
+     obj.fn();
+</script>
+</body>
+</html>

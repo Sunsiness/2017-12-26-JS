@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.不管条件是否成立，都要进行变量提升；
+    //  在最新版本的浏览器中，不管条件是否成立，function关键字的只声明不定义；
+    // 在老版本的浏览器中，不管条件是否成立，带function关键字不仅声明，而且定义；
+//    console.log(fn);
+//    if([]==[]){
+////        var  num =100;
+//        function fn() {
+//
+//        }
+//    }
+//    console.log(num);
+//    console.log(fn);
+//    for(var i=10;i<9;i++){
+//        function fn() {
+//
+//        }
+//    }
+//
+//    if("a" in window){// true 在给window新增键值对是在变量提升阶段进行的；
+//        var a = 100;
+//    }
+//    console.log(a);// 100
+//
+//    f = function () {return true};
+//    g = function () { return false;};
+//    (function () {
+//        console.log(g);// undefined
+//        if(g()&&[]==![]){
+//            f = function f() {return  false;}
+//            function g() {return true;}
+//        }
+//    })()
+//    alert(f())
+//    alert(g())
+
+    // 2. 变量提升只发生在等号的左边，等号右边不进行变量提升
+//    console.log(fn);
+//
+//    var  a = {
+//        fn : function fn() {
+//
+//        }
+//    };
+
+    // 3. 在函数数体中，return 下面代码需要进行变量提升，但是return出的内容是不进行变量提升的；
+//
+//    function fn() {
+//        console.log(sum);
+//        return function sum() {
+//
+//        };
+//        function sum() {
+//
+//        };
+//        sum()// 此处不执行
+//    }
+//    fn()
+
+    // 4. 如果变量名重复，那么不再重复声明，但要重新定义；
+//      var  fn = 10;
+//      var  fn =100;
+//      function fn() {
+//
+//      }
+//    console.log(fn);
+//    function fn() {// fn =xxxfff111;
+//       console.log(1)
+//    }
+//    fn()
+//    function fn() {// fn =xxxfff222;
+//        console.log(2)
+//    }
+//    fn = 18
+//    function fn() {// fn =xxxfff333;
+//        console.log(3)
+//    }
+//    fn()
+//    function fn() {// fn =xxxfff444;
+//        console.log(4)
+//    }
+
+    // 5.自执行函数定义和执行一块完成的；当代码加载到这一行时，定义加执行；
+    (function () {
+
+    })()
+
+
+
+
+</script>
+</body>
+</html>
