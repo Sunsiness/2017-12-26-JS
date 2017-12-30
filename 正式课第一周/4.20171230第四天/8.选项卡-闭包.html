@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width : 400px;
+            height:300px;
+
+            margin:30px auto;
+        }
+        #tab ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #tab ul li{
+            width : 80px;
+            height:35px;
+            text-align: center;
+            line-height: 35px;
+            margin-right:10px;
+            float:left;
+            border:1px solid #ee44dd;
+            cursor: pointer;
+        }
+        #tab ul li.select{
+            background: #ee44dd;
+        }
+        #tab div{
+            display: none;
+            width:100%;
+            height:265px;
+            line-height: 265px;
+            text-align: center;
+            border:1px solid red;
+        }
+        #tab div.select{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <div class="select">HTML</div>
+    <div>JS</div>
+    <div>VUEREACT</div>
+</div>
+
+<script>
+    var oLis = document.getElementsByTagName("li");
+    var oTab = document.getElementById("tab");
+    var oDivs = oTab.getElementsByTagName("div");
+
+    function change(n) {
+        for(var  j =0;j<oLis.length;j++){
+            oLis[j].className = "";
+            oDivs[j].className = "";
+        };
+
+        oLis[n].className = "select";
+        oDivs[n].className = "select";
+    }
+    // 1. 自定义属性
+//    for(var i=0;i<oLis.length;i++){
+//        // 自定义属性
+//        oLis[i].index = i;
+//        oLis[i].onclick = function () {
+//           change(this.index)
+//        }
+//    }
+    //
+    // 闭包：利用了不销毁作用域保存值的特点
+    // 区别： 闭包会产生三个不销毁的作用域用来存储i的值；是相对于自定义属性是消耗性能的；
+    for(var i=0;i<oLis.length;i++){
+        (function (j) {
+            // 此处形成了三个不销毁的作用域，每个作用域中存储j 0 1 2
+            oLis[i].onclick=function () {
+                change(j)
+            }
+        })(i)
+    }
+
+    for(var i =0;i<oLis.length;i++){
+        oLis[i].onclick = (function (i) {
+            //   0  1  2
+            return function () {
+                // 这个函数的上一级作用域是自执行函数形成的私有作用域，并且不销毁的，这个作用域有形参i;来储存值；
+                change(i);
+            }
+        })(i)//  0   1    2
+    }
+
+
+
+</script>
+</body>
+</html>
