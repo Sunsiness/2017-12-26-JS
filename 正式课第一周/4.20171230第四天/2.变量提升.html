@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 变量提升（预解释） ： 在形成作用域之后，代码执行之前，(在当前作用域下)把带var的和function的关键字的变量进行提升的声明；那么这个过程就是变量提升；
+
+
+    // 如果变量只声明，那么默认存储值是undefined；
+//    console.log(a);// undefined
+//    var a =100;
+//    console.log(a);// 100
+//    console.log(b);  //   b is not defined
+//    b = 10;
+//    console.log(b);// 10
+//    console.log(a);
+    // function  : 不仅进行提前声明，而且还要定义；
+    // 函数定义发生在 变量提升阶段；
+//    console.log(fn);//
+    // 代码执行时，遇到此处的代码直接跳过；
+//    fn =100;
+//    function fn() {
+//        var  a = 10;
+//    }
+//    console.log(fn);//100
+
+//    function fn(a) {
+//        console.log(a);// 函数体
+//
+//        function a() {
+//
+//        }
+//    }
+//    fn(12)
+//    var  a = 10;
+//    var  a = 1;
+
+    // es6 : let  定义变量
+    // var  : 区别 ，let不进行变量提升；不能进行重复声明；
+    // console.log(num);//
+//    let num = 100;
+//    let num = 1;
+//    console.log(num);
+
+//    for(let i =0;i<5;i++){
+//        oLis[i].onclick = function () {
+//            console.log(i)
+//        }
+//    }
+
+    // 常量 : 定义一个不变的量，这个变量不能修改；
+//    const m = 3.14;
+//    m =10;
+//    console.log(m);
+
+</script>
+</body>
+</html>

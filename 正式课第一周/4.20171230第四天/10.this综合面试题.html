@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//    var num =2;//1//2
+//    var obj = {
+//        num : 0,
+//        fn : function () {
+//            num = 1;
+//            (function (num) {
+//                ++this.num;
+//                num++;//2
+//                console.log(num);//2
+//            })(this.num)
+//        }
+//    }
+//    var f = obj.fn;
+////    f();
+////    console.log(window.num,obj.num);// 2 0
+//    var num =2;
+//    var obj = {
+//        num : 0,
+//        fn : function () {
+//            num = 1;
+//            console.log(this.num)
+//            (function (num) {
+//                ++this.num;
+//                num++;
+//                console.log(num);// 1
+//            })(this.num)// 0
+//        }
+//    }
+//    obj.fn();
+//    console.log(window.num,obj.num);// 2  0
+//
+//    var number =2;//4 8
+//    var obj = {
+//        number :4, //8
+//        fn1 : (function () {
+//            this.number*=2;
+//            number = number*2; //NaN
+//            var number = 3; //9 27
+//            return function () {
+//                this.number*=2;
+//                number*=3;
+//                console.log(number); // 9   27
+//            }
+//        })()
+//    };
+//    var fn1 = obj.fn1;
+//    fn1(); obj.fn1();
+//    console.log(window.number,obj.number);// 8  8
+    var num = 10;//20//30
+    var obj = {num: 15};//30
+    obj.fn = (function (num) {
+        this.num += 10;
+        num *= 2;//30
+        return function (n) {
+            this.num += n;
+            console.log(n + (--num));
+        }
+    })(obj.num);
+    var fn = obj.fn;
+    fn(10);// 39
+    obj.fn(15);// 43
+    console.log(window.num, obj.num);//30  30
+</script>
+</body>
+</html>

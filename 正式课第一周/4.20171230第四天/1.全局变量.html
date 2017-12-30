@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 全局作用域 ：当浏览器打开页面时，首先会形成一个供js代码运行的环境，那么这个全局的环境---》“全局作用域”；在同一个页面中，有且只有一个；
+
+
+    // 全局变量 : 在全局作用域下定义的变量就是全局变量；
+    // 全局变量相当于给window新增一个键值对；键值对的属性名是变量名，属性值变量存储的值；
+//    console.log(a);
+//    var  a = 10;
+//    var b = 100;
+//    console.log(c);
+//    c = 9;
+    // 在全局下定义一个函数，相当于给window新增一个属性名是fn的键值对，属性值是整个函数体；
+//    function fn() {
+//        // 在函数中定义的变量，不能被函数外面调用；
+//        function a() {
+//            console.log(1)
+//        }
+//        window.b = a;
+//    }
+//    fn()
+//    b()// a is not  defined
+
+    // 私有作用域
+
+    // 函数形成首先会形成一个私有作用域；是供函数体中代码运行的环境；
+//    function fn() {
+//
+//    };
+    // 函数定义:
+       // 1. 开辟一个空间地址；
+      // 2. 把函数体中的代码以字符串形式存储到这个空间地址对应的堆内存中；
+      // 3.把空间地址赋值给这个函数名；
+//       var obj = {
+//           num : 12,
+//           fn : (function () {
+//
+//           })(obj.num),// obj 是undefined
+//           f: function () {
+//               console.log(obj.num);
+//           }
+//       }
+
+    // 函数执行
+    // 1. 形成一个私有作用域
+    // 2. 形参赋值
+    // 3. 变量提升
+    // 4. 代码从上到下运行
+    // 5. 作用域是否销毁
+
+    //私有变量 ： 在私有作用域下定义的变量就是私有变量
+
+    // 1. 私有变量
+    //  1. 看在当前作用域是否被var过
+    //  2. 形参也是私有变量
+    var  a =0;
+    function f(a) {
+        //console.log(a);// a is  not  defined
+       a = 10;
+    }
+    f()
+    console.log(a);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // this  --> this  是关键字； 在js特殊意义；
+//    console.log(this);
+    // 1. 全局下的this，指向window；
+    // 2. 函数执行看前面是否有“点”，如果没有，会指向window；如果有，那么点前面是谁，this就会指向谁；
+    //3. 给元素的事件行为绑定方法，那么方法中的this，会指向当前被绑定的元素；
+    // 4. 自执行函数的this，永远指向window；
+    // 5.定时器方法中的this，永远指向window
+//    function sum() {
+//        console.log(this);// this 在函数体中，代表当前函数的执行主体，是谁让这个函数执行的，那么this就会指向谁；
+//        function a() {
+//
+//        }
+//        this.a = a;
+//    }
+//    sum()
+//    var  obj = {
+//        fn : function () {
+//            console.log(this);
+//        }
+//    }
+//    obj.fn()
+//    var obj = {
+//        fn : {
+//            num :10,
+//            f :function () {
+//                console.log(this);// {num: 10, f: ƒ}
+//            }
+//        }
+//    };
+//    obj.fn.f();
+
+    // 3.
+//    oLis[i].onclick = function () {
+//
+//    }
+//var  obj = {
+//    fn : function () {
+//        console.log(this);// obj
+//            (function () {
+//                console.log(this);// window
+//            })()
+//        }
+//};
+//
+//   obj.fn()
+
+//    var obj = {
+//        fn : (function () {
+//            //console.log(this)// window
+//            return function () {
+//
+//            }
+//        })()
+//    };
+//    console.log(obj);
+
+    setTimeout(function () {
+        console.log(this);
+    },1000)
+
+</script>
+</body>
+</html>
