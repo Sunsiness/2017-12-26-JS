@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //当获取输出变量值，首先看是否当前作用域的私有变量，如果不是，那么继续往上一级作用域查找，那么上一级作用域也没有，那么需要继续往上查找，直到找到window为止；如果window也没有，那么就会报错；这样形成“作用域链”；
+
+//    var total = 100;
+
+//    function fn() {
+//        // 首先看是否是私有变量
+//        function sum() {
+////            console.log(total);// 100
+//            total = 0;
+//        }
+//        sum()
+//        console.log(total);// 0
+//    }
+//    fn()
+    var a = 10;
+    function fn() {
+        var a = 100;
+        return function () {
+            // 上一级作用域是fn执行形成的作用域；
+            console.log(a)
+        }
+    };
+    var  f = fn();//
+    f()// 全局作用域下执行
+    // 判断上一级作用域的方法： 函数执行的上一级作用域跟函数在哪执行没有任何的关系，跟函数在哪定义有关，在哪个作用域中定义，那么上一级作用域就是谁；
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function foo() {
+//
+//    }
+//    foo();
+//    foo();
+    // 函数每执行一次，都会开辟一个新的栈内存，栈内存之间互不影响
+    // 一般情况下，函数执行完成之后，作用域会立即销毁；
+//    function foo() {
+//        var  total = 10;
+//        return  function () {
+//            console.log(total)// 10
+//        }
+//
+//    }
+//    var f =foo();
+//    f();
+    // 全局作用域属于不销毁的作用域，只有当页面关闭，全局作用域才销毁； 作用域销毁，里面栈内存存储的基本数据类型值也会随之销毁；
+
+
+    // 不销毁的作用域 ：
+    // 1. 当前作用域返回一个引用数据类型的值
+    // 2. 函数的返回值，被外界变量接收；
+
+//    var obj = {
+//        fn : (function () {// fn 属性值存储的是return后面函数的地址；
+//            var num =10;
+//            return function () {
+//                console.log(num)
+//            }
+//        })()
+//    };
+//    obj.fn()
+
+
+    // fool 不立即销毁；
+    function foo() {
+        var a = 1;
+        return function () {
+            // 执行此处代码，外层作用域没有立即销毁；当这个函数执行完成，外层作用域也随之销毁；
+            console.log(a);
+        }
+    }
+    foo()();
+
+
+
+
+</script>
+</body>
+</html>

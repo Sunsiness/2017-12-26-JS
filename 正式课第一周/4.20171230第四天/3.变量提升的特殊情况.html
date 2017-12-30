@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. 不管条件是否成立，都要进行变量提升；
+    // 在最新版本的浏览器中，带function关键字的只声明，不定义
+    // 在老版本浏览器，function声明定义；
+//    console.log(a);
+//    if([] == ![]){
+////        var a = 10;
+//        function a() {
+//
+//        }
+//    }
+    // 2.变量提升只发生在等号的左边
+//    console.log(fn);
+//    var fn = function () {
+//        console.log(1);
+//    }
+//    sum();
+//
+//    var  a = b = 1;
+//    var obj = {
+//        fn:function a() {
+//
+//        }
+//    }
+//    var a = obj.fn;
+//    console.log(obj.fn);
+
+    // 3.return  下面的代码进行变量提升，return后面的内容是不进行变量提升
+    function a() {
+        console.log(b,c);
+        return function () {
+            
+        };
+        var b =10;
+    }
+    a()
+
+
+    // 4. 如果变量名字发生重复，那么不再重复声明，但要重新定义
+//    console.log(a);
+//
+//    function a() {
+//
+//    }
+////    var  a = 100;
+//    fn();// 2
+//    function fn() {
+//        console.log(1);
+//    }
+//    fn()// 2
+//    fn =9;
+//    function fn() {
+//        console.log(2);
+//    }
+//    fn()// 2
+
+    // 5. 自执行函数定义和执行一块完成
+    (function () {
+
+    })()
+
+
+
+
+</script>
+</body>
+</html>
