@@ -11,23 +11,23 @@
     var obj = {
         num: 3,
         bar: (function () {
-            var n = 5;
+            var n = 5; //7  9  11
             return function () {
-                console.log(n += 2);
+                console.log(n += 2);//7   9  11  13
             }
         })()
     };
-    obj.bar();// 7
-    obj.bar();//  9
+    obj.bar();//7
+    obj.bar();//9
     var fn3 = obj.bar;
-    fn3();//  11
-    fn3();//  13
+    fn3();//11
+    fn3();//13
 
 
-    var name = "珠峰";
+    var name = "珠峰";//中国
     var age = 8;
     (function (name,age) {
-        console.log(name,age)//
+        console.log(name,age)// 珠峰  8
         name = "中国";
         age = 5000;
         window.name = name;
@@ -36,7 +36,7 @@
             console.log(age)// 5000
         }
     })(name,age)();
-    console.log(name,age);
+    console.log(name,age);// 中国  8
 
 
 
