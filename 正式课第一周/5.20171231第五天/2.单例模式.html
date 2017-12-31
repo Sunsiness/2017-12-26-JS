@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //
+    var  name = "王云成";
+    var  age =  66;
+
+    var name1 = "王明明";
+    var age1 = 65;
+
+    var wangyuncheng = {
+        name : "王云成",
+        age : 66,
+        hobby : "game",
+        technology : "会写js"
+    };
+    var wangmingming = {
+        name : "王明明",
+        age : 65,
+        hobby : "eat",
+        technology : "会写js"
+    };
+    // 同一事物开辟的空间地址，这个空间地址的名字就是“命名空间”
+    //我们把描述同一件事物的不同属性放在同一个命名空间下，避免变量之间的相互干扰；这种模式就是“单例模式”；
+    //
+    // 获取属性名对应的属性值；命名空间.属性名；
+//    console.log(wangmingming.hobby);
+
+    for(var key  in  wangmingming){
+        console.log(wangmingming[key])
+//        debugger
+    }
+
+    // in : 可以检测当前属性名是否在这个空间下存在，存在返回true，不存在返回false;
+    console.log("play" in wangmingming);
+
+    var  GSY = {
+        fn : function () {
+            console.log("下雨了")
+        }
+    }
+
+    var  SX = {
+        fn : function () {
+            console.log("雨停了")
+        }
+    }
+    GSY.fn();
+    SX.fn()
+
+
+</script>
+</body>
+</html>

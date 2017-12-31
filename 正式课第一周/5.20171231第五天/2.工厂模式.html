@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function createPerson(name,age) {
+        // 首先创建一个空对象
+        var  obj = {};
+        // 给obj新增键值对
+        obj.name = name;
+        obj.age = age;
+        obj.technology = function () {
+            console.log(name + "会写js")
+        }
+        return obj;
+    };
+    var  p1 = createPerson("王云成",66);
+    var  p2 = createPerson("王明明",65);
+    var p3 = createPerson("王进辉",30);
+    console.log(p1);
+    console.log(p2);
+    console.log(p3);
+
+    // 把实现统一功能的代码放进函数中，当想实现类似功能时，直接执行这个函数即可；减少了代码的冗余，提高了代码利用率；低耦合，高内聚）---> “工厂模式” //
+    ///函数的封装；
+
+    // 单例模式：避免了冲突
+    // 工厂模式： 实现了批量化生产；
+
+
+    function getBrother(curEle) {
+        //首先判断previousElementSibling在对象是否存在；检测是否是标准浏览器；
+        if("previousElementSibling" in  curEle){
+            return curEle.previousElementSibling;
+        };
+        var pre = curEle.previousSibling;
+        while(pre){
+            if(pre.nodeType === 1){
+                return pre;
+            }
+            pre = pre.previousSibling;
+        }
+    }
+
+
+</script>
+</body>
+</html>

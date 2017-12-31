@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var  ary = [];
+//    ary.sort();
+    //1. 变量提升
+//    console.log(fn);// undefined
+//    if([] == false){
+//        // 在最新版本浏览器，当进入到块级作用域中，马上对fn进行赋值；
+//        console.log(fn);//  函数体
+//        function fn() {
+//
+//        };
+//        console.log(fn);//  函数体
+//
+//    }
+//
+//    console.log(sum);// 函数
+//    var  sum = 10;
+//    console.log(sum);// 10
+//    function sum() {
+//
+//    }
+
+    //
+//    (function () {
+//
+//    })()
+    // 2. 作用域
+     // 全局变量
+//   if([]){
+//        var num =10;
+//   }
+//    console.log(num);
+
+//   // 私有作用域
+// 私有变量
+//function fn(n) {
+//    console.log(n);// 100
+//    var n = 10;
+//}
+//fn(100)
+
+// 作用域销毁：
+// 不销毁 ：
+function fn() {
+
+    return function () {
+
+    }
+};
+fn()();
+//
+var  GSY = (function () {
+    function fn() {
+        console.log("下雨了")
+    };
+    function sum() {
+
+    }
+
+    return {
+        fn :fn,
+        sum:sum
+    };
+})();
+
+var SX = (function () {
+    function fn() {
+        console.log("雨停了")
+    };
+    function sum() {
+
+    }
+    GSY.fn();
+    return {
+        fn:fn,
+        sum:sum
+    }
+})();
+
+
+
+// 3.this
+    //1.
+
+
+
+
+</script>
+</body>
+</html>
