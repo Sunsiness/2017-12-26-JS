@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. 单例模式：
+//    var date = "20180102";
+//    var  date = "20180101";
+//    var oldday = {
+//         date :"20180101"
+//    };
+//    var newday = {
+//        date:"20180102"
+//    }
+//    var  YJ = {
+//        fn:function (){}
+//    };
+//    var JHD = {
+//        fn:function (){}
+//    }
+
+    // 2.工厂模式
+//    function create(name,age) {
+    //        var  obj = {};
+    //        obj.name = name;
+    //        obj.age = age;
+    //        return obj;
+    //    };
+    //    create();
+    //    function getBrother(curEle) {
+    //        if("previousElementSibling" in  curEle){
+    //            return curEle.previousElementSibling;
+    //        };
+    //        var  pre = curEle.previousSibling;
+    //        while(pre){
+    //            if(pre.nodeType === 1){
+    //                return pre;
+    //            }
+    //            pre = pre.previousSibling;
+    //        }
+    //    };
+    //
+   // 3.构造函数模式
+    // 通过类创建实例；函数被new那么当前函数就是一个类；也是构造函数；
+//    function fn() {
+//        // this
+//        console.log(this);// 在构造函数中，this指向当前的实例；
+//        this.a = 10;
+////        this.a = 11;
+//        this.b = 1;
+//        var  c = 0;
+//    };
+//    fn()
+//    var  p  = new fn();
+//    fn()
+//    console.log(p);
+//
+//    console.log(Array());
+//    var  num =100;
+//    var  n = num;
+    function Fn(num) {
+        var  x = 100;
+        this.x = num;
+        this.y = 1;
+        this.getX = function () {
+            console.log(this.x)
+        }
+    }
+    //Fn();// 普通函数执行
+    var  f = new Fn(10);
+    var  f1 = new Fn(20);
+    // 构造函数执行：
+    // 1. 形成私有作用域---> 形参赋值---> 变量提升--> 在代码执行之前，默认会创建一个空对象，并且让this指向当前这个对象-->代码从上到下运行--> 默认把创建的对象返回--> 作用域释放
+
+    // 2. 如果在当前作用域是私有变量，那么和创建的实例没有关系；在构造函数中，和this相关的才和实例有关；
+
+    // 3.如果构造函数不传实参，执行的小括号可以省略；
+
+    // 4.this--> 构造函数中this指向当前实例；
+       // 方法中的this，需要看方法前执行有没有“.”,点前面是谁，this就是谁；没有是window；
+//    console.log(f.x)// 10
+//    var  a = f.getX;
+//    a();
+
+    //
+//    console.log(f.x === f1.x);
+//    console.log(f.y === f1.y);
+//    console.log(f.getX === f1.getX);// false
+
+    // 5.instanceof : 检测当前实例是否属于某个类的方法
+    // 局限性
+    // 1. 基本通过字面量方式创建的是一个不标准的实例，不能用instanceof检测；
+    // 2. instanceof检测类只要在当前实例的原型链上，都返回true；
+//    var num = new Number(1);
+//    console.log(num instanceof Number);
+//    var  a = [];
+//    console.log(a instanceof Array);// true
+//    console.log(a instanceof Object);// true
+//    var  obj = {};
+//    console.log(obj instanceof Object);// true
+//    console.log(obj instanceof Array);// false
+    //    console.log(Function instanceof Object);// true
+//    console.log(Object instanceof Function);// true
+
+    // 6. in  : 检测当前属性是否在这个对象中存在；存在返回true，不存在返回false；// 如果私有公有都没有，才返回false；
+    //var ary = [12,89,9,0]// indexOf
+    var  obj = {month:1,date:2};
+    console.log("year" in obj);// false;
+    console.log("hasOwnProperty" in obj);//
+
+    // 7.hasOwnProperty;检测当前私有属性是否存在；
+    console.log(obj.hasOwnProperty("toString"));// false  toString是obj 的公有属性；
+    //hasPublicProperty: 是否是公有属性
+    function hasPublicProperty(obj,attr) {
+        // attr  in  obj : 校验当前属性是obj的一个属性，可能是公有也可能是私有
+        // obj.hasOwnProperty(attr) === false: 当返回obj.hasOwnProperty(attr)false，说明不是私有，或者不是自己的属性；
+       return (attr in obj) && (obj.hasOwnProperty(attr) === false);
+    };
+    hasPublicProperty(obj,"toString");
+
+
+
+
+
+</script>
+</body>
+</html>

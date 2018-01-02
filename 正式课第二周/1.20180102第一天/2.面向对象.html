@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div">
+    <ul id="ul"></ul>
+</div>
+
+<script>
+    // 面向对象  ---> 基于对象  ： 类的 继承 封装 多态
+    // 对象 ： 万物皆对象；
+    // 类 ： 对象的一个细分；
+    // 实例 ： 类具体的一个事物；
+
+    // 内置类和自定义类
+    // 数据类型的类
+    // Number  String Boolean  Null  Undefined   Object   Array  RegExp  Date  Function...
+
+//    function Number() {
+    //
+    //    };
+//    Number("12px")
+//    parseFloat("12px");
+//    console.log(parseFloat);
+//    var num = 10;
+//    console.log(num.toFixed);
+//    num.toFixed(2)
+//    var num = 10;
+//    var  n = new  Number(12);// PrimitiveValue : 12  原始值是12
+//    console.log(n);
+    //console.log(num instanceof Number);//false num 不是Number类的一个标准实例，但是可以调用父类原型上公有的方法；浏览器会默认把通过字面量方式创建的变量转换成真正的实例去调用公共方法；
+//    n.toFixed(1)
+//    console.log(typeof n);// "object"
+    // 实例都是对象数据类型
+//
+//    num.toFixed(1);
+//    num.toFixed(2);
+
+
+    //  引用数据类型 :
+//    var  ary = [122,99];
+//    console.log(ary instanceof Array);
+//    [].pop();
+
+    // 元素集合类 HTMLDIVElement HTMLUListElement...
+    //HTMLDIVElement : 是所有div标签的类；
+
+    var  div  = document.getElementById("div");
+    var oUl = document.getElementById("ul");
+    // div-->HTMLDIVElement --->HTMLElement -->Element -->Node-->EventTarget-->Object
+
+
+    //实例 ：
+    //new + 类 : 创建实例； 实例是一个对象数据类型的；实例可以调用父类prototype上的方法；
+
+    var  ary = [12,88,99];
+    ary.push(12);
+
+
+
+
+
+</script>
+</body>
+</html>
