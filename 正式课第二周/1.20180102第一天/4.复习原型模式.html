@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /// 原型模式： 解决了属性的公有问题，所有的实例都可以调用到类prototype里的公有的方法；即便新增实例，也不需要再开辟新的堆内存；
+    function Fn(num) {
+        // 在类中，跟this有关的属性都是私有属性
+        var  x = 100;
+        this.x = num;
+        this.y = 1;
+//        this.getX = function () {
+//            console.log(1)
+//        }
+    }
+    //Fn();// 普通函数执行
+    Fn.prototype.getX = function () {
+        console.log(2)
+    }
+    var  f = new Fn(10);
+    var  f1 = new Fn(20);
+//    f.__proto__.getX();
+    console.log(f.getX === f.__proto__.getX);// false;
+    //    console.log(f);
+//    console.log(f.getX);
+//    f.getX()
+//    f1.getX()
+//    console.log(f.getX === f1.getX);//
+//    console.log(f1);
+    
+    // 1. 每一个函数数据类型（普通函数、类（内置类，自定义类））都天生自带一个prototype属性，这个属性的属性值是对象数据类型的；
+    // 2. 这个prototype对象中又天生自带一个constructor属性，属性值是当前原型所对应的类
+    // 3. 每一个对象数据类型（对象、实例、数组、prototype...）都天生一个__proto__ 属性，属性值是指向当前实例所属类的原型；
+
+    function fn(num) {
+        
+    };
+    console.log(fn.prototype.constructor);
+
+    // Array : 数组类
+
+    // [] :
+    // 当实例获取属性名对应的属性值时，首先看是否是私有属性，如果是私有属性，那直接输出对应的值，如果不是，那么实例会通过__proto__ 继续向上查找，查找父类的prototype的属性值，如果还没找到，那么继续向上查找，直到找到Object的prototype，如果也没有，那么输出undefined；那么通过__proto__向上查找的机制形成了“原型链”；
+//    [].hasOwnProperty()
+
+    // 对象 对象数据类型 Object 实例；
+//    {}
+//    [] {}  /\d/
+//    Object :
+//    []
+
+//    var  ary = [12,99,0];
+//    ary.slice().splice();
+
+    // 数组去重：
+
+    var  ary = [12,8,9,99,9,8];
+//    var  obj = {}
+//    for(var i=0;i<ary.length;i++){
+//        var  cur = ary[i];
+//        if(obj[cur] === cur){
+//            ary[i] = ary[ary.length-1];
+//            ary.length--;
+//            i--;
+//            continue;
+//        }
+//        obj[cur] = cur;
+//    }
+    ary.distinct();
+
+    Array.prototype.distinct = function () {
+        //console.log(this);
+        var  obj = {}
+        for(var i=0;i<this.length;i++){
+            var  cur = this[i];
+            if(obj[cur] === cur){
+                this[i] = this[this.length-1];
+                this.length--;
+                i--;
+                continue;
+            }
+            obj[cur] = cur;
+        }
+        return this;
+    };
+//    var  ary = [12,8,9,99,9,8];
+
+    console.log(ary.distinct());
+    var ary1 = [12,12,14,14]
+    console.log(ary1.distinct());
+    var  a = [12,100,100];
+    console.log(a.distinct());
+
+   var  obj  = new  Object();
+   obj.name = "12"
+</script>
+</body>
+</html>
