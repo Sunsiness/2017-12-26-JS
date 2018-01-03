@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Number  String  Boolean  Null  Undefined  Object  Array RegExp  Date   Function;
+    
+    // Object  Function 
+    
+    function Fn() {
+        
+    };
+    Fn.prototype.get = function () {
+
+    }
+//    Fn.__proto__.get()
+    var  f =new  Fn;
+    console.log(Fn instanceof Function);
+    Fn.call()
+    f.call()
+
+    // 1.所有的函数数据类型都是Function的一个实例；Function是所有函数数据类型（普通的函数，类（内置类、自定义类））的基类；
+    // 2.所有的对象数据类型都是Object的一个实例；Object是所有对象数据类型的基类
+    // 所有的实例都是对象数据类型的；
+
+    console.log(Array instanceof Function);// true
+    console.log(Array instanceof Object);// true
+    console.log(Object instanceof Function);// true
+    console.log(Function instanceof Object);// true
+
+    console.log(Function instanceof Function);
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <div id="a"></div>
+    <!--你好我好大家好-->
+    <ul class="ul"></ul>
+</div>
+
+<script src="jquery-1.11.3.js"></script>
+<script>
+//    var a = document.getElementById("box");
+//    a.addClass();
+//    $("#box").addClass("aa");
+console.log($(".ul").prevAll().addClass());
+
+// Jquery核心原理 :采用了构造函数的原理，当执行jquery方法时，就会默认创建一个jQuery的实例，那么这个实例就可以利用jQuery 原型上的方法；方便后期的维护；
+    ~function () {
+        var jQuery = function (selector, context) {
+            return new jQuery.fn.init(selector, context);
+        };
+        jQuery.fn = jQuery.prototype = {
+            constructor: jQuery,
+            init: function (selector, context) {
+
+            }
+        };
+        //
+        window.$ = window.jQuery = jQuery;
+    }();
+//    jQuery().addClass()
+
+</script>
+</body>
+</html>

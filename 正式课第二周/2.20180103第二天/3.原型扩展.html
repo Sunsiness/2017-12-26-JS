@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 内置类
+    Array.prototype.distinct = function () {
+        //console.log(this);
+        var  obj = {}
+        for(var i=0;i<this.length;i++){
+            var  cur = this[i];
+            if(obj[cur] === cur){
+                this[i] = this[this.length-1];
+                this.length--;
+                i--;
+                continue;
+            }
+            obj[cur] = cur;
+        }
+        return this;
+    };
+    var ary = [12,8,9,8,9];
+//    console.log(ary.distinct());
+//    var  ary1 = [1,1,1,3,3,]
+//    console.log(ary1.distinct());
+//    console.log(ary.slice(2,4));
+    // 课下实现slice方法；
+    // 没有参数
+    // 一个参数  参数正负  以及和数组长度的比较
+    // 两个参数   参数正负
+//    ary.pop();
+    Array.prototype.pop = function () {
+//        console.log(1)
+        this.length--;
+        return this;
+    };
+    console.log(ary.pop());
+    // 如果自定义方法和原有的方法名字重复，那么会把原型原有方法覆盖；
+    // 加法 plus
+//    Number.prototype.plus  = function (num) {
+//        if(typeof num === "undefined"){
+//            num =0;
+//        }
+//        return this+ num;
+//    };
+//    var num = 1;
+//    console.log(num.plus(5).plus(6));
+
+
+    Array.prototype = {
+
+    };
+    ary.pop();
+
+
+    function Fn() {
+
+    }
+    //自定义类： 新开辟的空间地址会把Fn天生自带的prototype进行覆盖；那么天生自带的constructor就会随之消失；
+    Fn.prototype.getY = function () {
+
+    }
+    Fn.prototype = {
+        constructor:Fn,
+        x:100,
+        getX : function () {
+            console.log(1);
+        }
+    };
+    var  f = new  Fn;
+    f.getX()
+
+
+
+
+
+
+</script>
+</body>
+</html>
