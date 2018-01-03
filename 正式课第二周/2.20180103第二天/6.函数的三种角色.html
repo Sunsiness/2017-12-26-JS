@@ -7,9 +7,9 @@
 <body>
 <script>
     // 1.普通函数
-    function fn() {
-
-    };
+//    function fn(num,num1) {
+//
+//    };
     // 函数定义： 空间地址
 
     // 和执行
@@ -21,11 +21,37 @@
     // 2. return +基本数据类型 不会对实例产生影响；return+ 引用会把默认创建的对象替换；
 
     // 3.对象
+    // length : 代表形参的个数
+    // name : 代表函数名
+//   fn(1,2)
+//    var obj = {name:12};
+//    console.log(obj.name);
+//    fn.a =10;
+    // 新增键值对；
 
+//    console.log(fn.a);
+//    var  ary = [];
+//    ary.a =  10;
 
-
-
-
+    var num = 0;// 200
+    function Fn(num) {
+        arguments[0] = 100;
+        this.num = 200;
+        return num;
+    }
+    Fn.num = 400;// 对象
+    Fn.prototype.num = 300;//
+    Fn.prototype.getNum = function () {
+        console.log(this.num);
+    };
+    var f = new Fn(num);// num =0  类
+    console.log(f.num);// 200
+    f.getNum();// 200
+    Fn.prototype.getNum();//  300
+    console.log(num)//0
+    var n = Fn(num);// 普通函数
+    console.log(n);// 100
+    console.log(num);// 200
 
 
 </script>
