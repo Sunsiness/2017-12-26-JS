@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // call 和apply  bind ； 在Function的原型上，只有Function这个类的实例可以调用这个方法；只有函数可以调用这三个方法；
+//    var ary = [];
+//    ary.call()// ary .call is  not  a function;
+    // 改变this关键字指向；
+    //
+//    "use strict"
+//    function fn(num,num1) {
+//        console.log(num);
+//        console.log(num1);
+//        console.log(arguments);
+//        console.log(this);
+//        // this ---> []
+//    };
+//    fn.call([],100,200,300);
+    // fn 通过__proto__向上查找到Function原型上call方法，让call方法执行；并且改变fn中this关键字（改变了call方法中this的this指向），让其指向call方法传的第一个实参，最后让fn执行；
+    // 严格模式下： 全局下的函数中this指向undefined；
+    // call(null)那么函数中的this就会指向null，传undefined就是undefined；不传那么函数中this也是undefined；
+
+    // 非严格模式： 全局下的函数this指向window
+    //  不传和传入null undefined ，那么方法中的this会指向window；
+//
+//    function fn() {
+//        console.log(this);
+//        console.log(2)
+//        // this ---> []
+//    };
+//    function fn1() {
+//        console.log(1)
+//    }
+//    fn.call({});
+
+//    fn.call.call.call.call(fn1);
+    //当call 大于两个时，fn1.call.call...(fn2); 相当于直接让fn2执行；
+    //原理： 最后一个call执行时，改变了前面call中的this，让他指向fn2,当倒数第二个call执行时，让这个call中的this执行，但是this指向fn2;所以直接执行fn2;
+
+    // apply: 改变this关键字
+    // 跟call区别： 当参数多余两个时，第二个及以后的参数要放进数组中，一块传进去；
+
+//
+//    function fn(num1,num2) {
+//        console.log(num1);
+//        console.log(num2);
+//        console.log(this);
+//    };
+//    fn.apply([],[1,2]);
+
+    // bind  :  预处理this；传参数和call方法保持一致；
+    // 在IE8及以下不兼容；
+        function fn(num1,num2) {
+            console.log(num1);
+            console.log(num2);
+            console.log(this);
+        };
+        var a =fn.bind([],1,2);
+        a();
+</script>
+</body>
+</html>

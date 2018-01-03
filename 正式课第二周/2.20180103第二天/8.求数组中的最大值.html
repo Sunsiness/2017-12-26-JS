@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Math.max()
+    // Math.max(12,9,0,19,88)
+    var ary = [12,99,10,78,88,66];
+//    console.log(Math.max(ary));
+    // 1. 排序
+//    ary.sort(function (a,b) {
+//        return a-b;
+//    });
+//    console.log(ary[ary.length - 1]);
+
+    // 2.假设法
+    // 假设第一项是最大值；去数组去拿每一项和这一项进行比较，如果新拿到的这一项比当前项大，那么直接将其覆盖；如果拿到的这一项，比这一项小，不做任何操作；
+    var max = ary[0];
+    var  min = ary[0];
+    for(var i=1;i<ary.length;i++){
+        var  cur  = ary[i];
+//        if(max<cur){
+//            max = cur;
+//        }
+        max < cur ? max = cur : null;
+        min > cur ? min = cur : null;
+    };
+    console.log(max);
+
+
+    // apply  :  apply : 利用了apply传参数的特点；改变了传参的方式
+
+    console.log(Math.max.apply(null, ary));
+
+
+</script>
+</body>
+</html>

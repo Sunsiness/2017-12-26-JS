@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // ary.sort(function(a,b){return  b-a});
+    //ary.pop()  ary.length--  ary.splice(ary.length-1,1);
+//    var  ary = [12,8];
+//    ary.splice(2,1);
+//   console.log(ary);
+    // slice(n-1,m)
+
+//    var  winW = document.documentElement.clientWidth || document.body.clientWidth;
+//    var  winH = document.documentElement.clientHeight || document.body.clientHeight;
+//   console.log(winH);
+
+    // appendChild   insertBefore
+//    Math.round(Math.random()*(m-n)+n);
+
+   //
+
+//    var first = document.createElement("div");
+//    document.body.appendChild(first);
+//    var  second = first.cloneNode();
+//    document.body.insertBefore(second,first);
+
+//    var  ary = [12,9,80];
+//    ary.slice(0)
+//   console.log(ary.splice(0, ary.length));
+    var i=2;// 4   5  10   11  12  24
+    function fn() {
+        i*=2;
+        return function (n) {
+            console.log(n * (++i))
+        }
+    };
+    var  f  = fn();
+    f(3)// 15
+    fn()(3) // 33
+    f(4)  // 48
+    fn()(4)// 100
+
+
+    var  ary = ["red","green","orange"];
+    for(var i=0;i<inputList.length;i++){
+         var  cur = inputList[i];
+         cur.index = i;
+         cur.onclick = function () {
+             document.body.style.background = ary[this.index];
+         }
+    }
+
+   for(var i=0;i<inputList.length;i++){
+       var  cur = inputList[i];
+
+       cur.onclick = (function(j){
+                // 当前作用域不销毁
+           return  function () {
+               document.body.style.background = ary[j];
+           }
+       })(i)
+   }
+</script>
+</body>
+</html>
