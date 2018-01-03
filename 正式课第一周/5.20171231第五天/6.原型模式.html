@@ -13,16 +13,15 @@
         this.age = age;
 //        this.technology = function () {
 //            console.log(this.name+"会js")
-//        };
-
+//        }
     };
     CreatePerson.prototype.technology = function () {
-        console.log(this.name+"会js")
+        console.log(this.name+"会js");
     }
     var  p1  = new CreatePerson("王云成",66);
 
-//    console.log(p1);
-//    p1.technology();
+    console.log(p1);
+    p1.technology();
     var p2 = new CreatePerson("王明明",65);
 //    p2.technology();
 

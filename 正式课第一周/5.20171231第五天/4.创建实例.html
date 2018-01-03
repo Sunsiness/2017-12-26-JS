@@ -6,6 +6,9 @@
 </head>
 <body>
 <script>
+
+    var ary = [1,2,3,4];
+    console.log(ary instanceof Array);
 //    var ary = [];
 //    [].sort()
 //    var str = "";
@@ -17,26 +20,26 @@
 //    var obj = {};
 //    var  str  = "";
 //  2.实例创建    new  + 类
-    var  ary1 =new  Array();// 数组的实例；
-    ary1.push(10)
-    console.log(ary1);
+//    var  ary1 =new  Array();// 数组的实例；
+//    ary1.push(10)
+//    console.log(ary1);
 
 //    var  num = 10;
     var  num = new Number(10.9999);
     num ++;
-    console.log(num);
+    console.log(num instanceof Number);
 //    var  n = 10;
 //    console.log(num instanceof Number);
-    console.log(num.toFixed(2));
-
-    var  a = {};
+//    console.log(num.toFixed(2));
+//
+//    var  a = {};
 
     // 实例都是对象数据类型的；
 
-    var  obj = {};
-    var obj1 = new Object();
-    obj1.name = "12";
-    console.log(obj1);
+//    var  obj = {};
+//    var obj1 = new Object();
+//    obj1.name = "12";
+//    console.log(obj1);
 
 //    var  a = new  [];
 // 浏览器禁止调用这两个内置的类；
