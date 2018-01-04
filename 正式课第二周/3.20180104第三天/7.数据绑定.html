@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="news">
+
+</ul>
+<div></div>
+<script>
+    var  data= ["中央军委举行开训动员大会 习近平发布训令","动漫微视频:习近平最深的牵挂","动漫微视频:习近平最深的牵挂","动漫微视频:习近平最深的牵挂"];
+    // 1.创建li
+    var  news = document.getElementById("news");
+//    for(var i=0;i<data.length;i++){
+//        var  li = document.createElement("li");
+//        li.innerHTML = data[i];
+//        news.appendChild(li);
+//    }
+    // 2.创建文档碎片
+    // 只会引发一次DOM回流
+//    var frg = document.createDocumentFragment();// 文档碎片容器
+//        for(var i=0;i<data.length;i++){
+//            var  li = document.createElement("li");
+//            li.innerHTML = data[i];
+//            frg.appendChild(li);
+//        }
+//        news.appendChild(frg);
+//        frg = null;
+    // 3. 字符串拼接
+    var str =""
+    for(var i=0;i<data.length;i++){
+        str += "<li>"+data[i]+"" +
+            "</li>"
+    }
+    news.innerHTML = str;
+//    console.log(str);
+
+    // 4.es6模板字符串
+    var str = ``;
+    for(var i=0;i<data.length;i++){
+            str += `<li>${data[i]}</li>`
+    }
+    news.innerHTML = str;
+
+
+    // 1.DOM的回流 ： 当页面中某个元素的位置，大小发生改变，那么页面中要其他元素位置进行重新的计算，这样对浏览器来说是很消耗性能的；这样就会引发DOM的回流
+    // 2. DOM的重绘 ： 当页面中元素的背景，字体，颜色发生变化时，浏览器会对元素进行重新渲染---> DOM的重绘；
+
+
+
+
+</script>
+</body>
+</html>

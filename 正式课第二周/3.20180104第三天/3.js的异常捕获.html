@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="utils.js"></script>
+<script>
+    var oDivs = document.getElementsByTagName("div");
+    // js的异常捕获  try  catch   finally
+
+//    console.log(num)
+//    console.log(1);
+
+//    try {
+//        // 先执行这里的代码，如果这里的代码报错，那么要执行catch中的代码，不影响代码的运行；
+//        console.log(12);
+//    }catch(e){
+//        console.log(e);// 错误信息
+//        throw new Error(e)
+//        // 抛出错误信息
+//        console.log(1)
+//    }finally {
+//        // 不管上面代码报错与否，这里代码永远执行；
+//        console.log("你很好")
+//    }
+
+    // 处理兼容
+    // 类数组转数组的方法
+//    function toArray(likeAry) {
+//        var  ary = [];
+//        try{
+//            ary = Array.prototype.slice.call(likeAry);
+//        }catch(e){
+//            for(var i=0;i<likeAry.length;i++){
+//                var  cur = likeAry[i];
+//                ary.push(cur);
+//            };
+//        }
+//        return  ary;
+//    };
+    console.log(utils.toArray(oDivs));
+
+</script>
+</body>
+</html>

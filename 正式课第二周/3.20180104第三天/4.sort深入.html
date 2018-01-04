@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. sort  :
+    //    var ary = [1,188,88,99,80];
+//    var ary = [1, 2, 3, 4, 5]
+//    //    ary.sort()// 排10以内的；
+//    ary.sort(function (a, b) {
+//        console.log(a, b);
+//        // sort 排序原理： 从小到大：让数组相邻两项进行比较，如果前一项比后一项大，（a-b大于0）那么让其位置进行交换；如果小于0；位置不变；
+//        // 从大到小
+//        return a - b;// 从大到小；  b-a 大于0 ，位置交换
+//    })
+    //    console.log(ary);
+
+    // 回调函数
+    //    ary.sort(function(){});
+    //    function A(callBack) {
+    //        callBack()
+    //        // 函数B作为实参传给函数A；在函数A中任意位置，可以执行函数B，那么函数就是函数A的回调函数；
+    //    }
+    //    function B() {
+    //
+    //    }
+    //    A(B)
+
+    //
+
+//    var  ary = [[0,1,88,99],[4,1],[9,1,0],[90,1],[66,1]];
+//    ary.sort(function (a,b) {
+//        console.log(a, b);// a,b 代表数组成员项；位置交换的是整个数组成员项；
+//        return a[0]-b[0];
+//    })
+    var ary = [{name:"金厚德",age:99},{name:"袁杰",age:18},{name:"张照栋",age:20},{name:"张芹芹",age:21}]
+    ary.sort(function (a,b) {
+        return a.age -b.age;
+    })
+    console.log(ary);
+
+
+</script>
+</body>
+</html>

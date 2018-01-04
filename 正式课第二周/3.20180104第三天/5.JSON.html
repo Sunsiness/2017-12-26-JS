@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //JSON  是一种数据格式，不是一种类型；
+//    var obj = {name:"hello",age:10};
+//    console.log(obj.name);
+//    console.log(obj["name"]);
+    var json = {"name":"hello","age":10};
+    // JSON格式的对象： 属性名是字符串形式的
+    // JSON 前端跟后台交互时的数据格式，后台一般返给前端都是以JSON数据格式返回；
+//    console.log(json.name);
+//    console.log(json["name"]);
+
+    // 单双引号不能连着用；
+    var  str = '{"name":"hello","age":10}';
+    // parse : 把JSON格式的字符串转换成JSON格式的对象
+//    console.log(str);
+//    console.log(JSON.parse(str));
+    // 在IE7 及以下，window不存在JSON这个属性
+    //    console.log(str.name);
+    // stringify : 把JSON格式的对象转换成JSON格式的字符串；
+
+//    console.log(JSON.stringify(json));
+
+    // eval :  把JSON格式字符串转成JSON格式对象，但是参数需要两边加上（）
+    console.log(eval("("+str+")"));
+
+
+</script>
+</body>
+</html>

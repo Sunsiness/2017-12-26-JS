@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.原型的扩展
+    function Fn(){
+        this.x = 100;
+
+    };
+    Fn.prototype.sum = function () {
+        console.log(this);
+    };
+    Fn.prototype.hello = function () {
+
+    };
+    // Fn.prototype 是一个对象数据类型的，和f.__proto__的属性值是同一个空间地址；
+    var f = new Fn;// {x:100}
+
+    f.sum();// this---> f
+    Fn.prototype.sum();// Fn.prototype
+    f.__proto__.sum();// f.__proto__
+    // 新开辟一个空间地址，把原有的进行覆盖；里面没有constructor；
+//    Fn.prototype = {
+//        constructor:Fn,
+//        sum : function () {
+//
+//        }
+//    };
+//
+//    Array.prototype.pop= function () {
+//
+//    };
+//    Array.prototype = {}
+
+
+    // 原型中this；
+
+    // 原型深入
+    // 1.Function 是所有函数数据类型的基类
+    // 2.Object 是所有对象数据类型的基类；
+
+
+    // 函数的三种角色
+    // 1.函数特点
+    function foo() {
+
+    };
+    foo()
+
+    var f =new  foo;
+    // 1. 创建实例
+    // 2.类中this指向当前实例
+
+    // 对象
+
+    foo.a =10;
+
+    // call  apply  bind: 在Function的原型上
+
+    function fn() {
+
+    };
+    fn.call([]);
+    fn.apply(12,[])
+    fn.bind(90)
+    //
+    //[].sort.call()
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
