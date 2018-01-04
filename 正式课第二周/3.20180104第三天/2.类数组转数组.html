@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+<script>
+    var oDivs = document.getElementsByTagName("div");// 类数组集合
+// oDivs  : 不是一个数组
+//    console.log(oDivs instanceof Array);// false
+//    console.log(typeof oDivs);// "object"
+
+    // 1. for 循环
+//    var ary = [];
+//    for(var i=0;i<oDivs.length;i++){
+//        ary.push(oDivs[i])
+//    }
+//
+//    ary.pop()
+//    console.log(ary);
+
+    // 2. slice : 在IE8及以下是不兼容的；
+    var  ary = Array.prototype.slice.call(oDivs);
+    console.log(ary);
+
+    // 3.
+    if("previousElementSibling" in curEle){
+
+    }
+</script>
+</body>
+</html>

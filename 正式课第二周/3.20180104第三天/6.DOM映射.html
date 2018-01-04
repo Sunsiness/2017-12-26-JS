@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #oUl{
+            width :500px;
+            margin:30px auto;
+            list-style: none;
+        }
+        #oUl li{
+            width:100%;
+            height:60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 20px;
+            border-bottom: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+<ul id="oUl">
+    <li>1</li>
+    <li>8</li>
+    <li>6</li>
+    <li>3</li>
+    <li>5</li>
+</ul>
+<script src="utils.js"></script>
+<script>
+    // 页面中标签和js中的元素集合是一一对应的；一个跟着改变，另一个也会跟变化；
+        var  oLis = document.getElementsByTagName("li");
+        var oUl =document.getElementById("oUl");
+    //    console.log(oLis);// 4
+    //    var  li = document.createElement("li");
+    //    oUl.appendChild(li);
+        //console.log(oLis.length);// 5；
+
+    //1.类数组转数组
+    var  ary = utils.toArray(oLis);
+    // 2.利用元素的innerHTML属性进行排序
+    ary.sort(function (a,b) {
+        return a.innerHTML-b.innerHTML;
+    })
+    // 3.ary是已经排好序的数组
+    for(var i=0;i<ary.length;i++){
+        oUl.appendChild(ary[i]);
+    }
+   // DOM 映射： 页面中每一个标签和js中的元素都是一一对应的，只要js中元素发生了变化，那么页面中的标签也会跟着改变；这种映射的机制就是DOM映射；
+
+</script>
+</body>
+</html>
