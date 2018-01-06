@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. 普通函数：
+    // 定义 执行
+    // 形成私有作用域--> 形参赋值-->变量提升--> 代码从上到下执行--> 作用域释放
+
+    // 2.类 ：
+    // 类中this指向实例
+    // 形成私有作用域--> 形参赋值-->变量提升-->（会默认创建空对象） 代码从上到下执行（把这个对象return出来）--> 作用域释放
+
+    // 3.对象
+//    function fn() {
+//
+//    };
+//    fn.a = 100;
+//    console.log(fn.a);
+
+
+    function Foo() {
+        getName = function () {
+            console.log(1);
+        };
+        return this;
+    }
+    // 对象
+    Foo.getName = function () {
+        console.log(2);
+    };
+    // 类
+    Foo.prototype.getName = function () {
+        console.log(3);
+    };
+    var getName = function () {
+        console.log(4);
+    };
+    function getName() {
+        console.log(5);
+    }
+    Foo.getName();//2
+    getName();//4
+    Foo().getName();//1
+    getName();//1
+    new Foo.getName();//2
+    new Foo().getName();//3
+    new (new Foo().getName)();//3
+
+
+</script>
+</body>
+</html>

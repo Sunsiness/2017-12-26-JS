@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // JSON
+
+    //JSON 是一种数据格式，不是新的数据类型
+//    var obj = {name:"a"};
+    var jsonObj = {"name":"a"}// JSON格式的对象
+    var str = '{"name":"a"}'// JSON 格式的字符串；
+
+    //JSON.parse()// 把JSON格式的字符串转换成JSON格式对象
+//    console.log(JSON.parse(str));
+//    console.log(JSON.stringify(jsonObj));
+    // JSON 在IE7及以下不兼容；
+    //eval: 把JSON格式字符串转换成JSON格式对象
+//    console.log(eval("(" + str + ")"));
+    console.log(eval(str));
+
+
+</script>
+</body>
+</html>
