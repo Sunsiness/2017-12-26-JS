@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // sort : 数组的排序
+    var ary = [12,99,8,10,77,88];
+//    ary.sort(function (a,b) {return a-b;})
+//    ary.sort(function (a,b) {return b-a;})
+    // 回调函数 : 函数B作为函数A的实参传到函数A中，在函数A中任意位置可以执行函数B，那么函数B就叫做函数A的回调函数；
+//    function A(callBack) {
+//        if(typeof callBack === "function"){
+//            callBack()
+//        }
+//        console.log(1);
+//    }
+//
+//    function B() {
+//        console.log(this);// window
+//        console.log(2);
+//    }
+//    A(B)
+//    A(1)
+//
+    // sort排序原理： 数组相邻两项进行比较，如果前面一项比后一项大，那么会让这两项交换位置，交换位置后，较小的一项继续和前面一项比较；如果回调函数的返回值大于0，那么交换位置，不大于0，不交换；
+    var ary = [12,99,8,77,10,88];
+    //    ary.sort(function (a,b) {
+    //        // 回调函数的执行不仅和数组的成员个数有关，而且和数组的顺序有关系；
+    ////        console.log(a,b);
+    //        return Math.random()*(10+5)-5;
+    //
+    //    });
+    //    console.log(ary);
+
+
+    var ary = [{a:1},{a:7},{a:18},{a:88},{a:66}];
+    ary.sort(function (a,b) {
+        // a,b 代表数组的每一个成员
+//        console.log(a.a,b);
+        return a.a-b.a;
+    });
+    console.log(ary);
+
+</script>
+</body>
+</html>

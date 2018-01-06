@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    "use strict"
+    // call apply  :改变函数中this指向
+    function fn(num) {
+        // this--> window
+        console.log(this);
+//        console.log(num);
+
+    };
+    var obj = {}
+    //fn.call(obj,100,200);// fn通过__proto__向上查找到Function的原型上的call方法，让call方法执行，执行时改变fn中的this指向，指向当前call的第一个实参；并且让fn执行；
+    //严格模式： 如果不传参数，那么函数中this会指向undefined，如果传null,this -->null  undefined -->undefined
+    //fn.call(undefined)
+
+    // 非严格模式
+    //如果不传参数，那么函数中this会指向window,传null和undefined都执行window
+
+    // apply: 传参不一样，第二个必须是一个数组，传给fn中也是一个一个传进去的；
+//    fn.apply(obj,[1,2]);
+    // bind : 预处理this指向
+
+    var f = fn.bind(obj,1,2)
+    f()
+    // 只是改变了fn中的this指向，并没有让fn执行；传参和call传参一样；
+
+    // 1. 类中this指向当前的实例、
+    // 2. call apply bind可以改变函数中的this指向；
+
+
+
+
+</script>
+</body>
+</html>

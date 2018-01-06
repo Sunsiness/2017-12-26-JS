@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #list{
+            width:400px;
+            margin:30px auto;
+            list-style: none;
+        }
+        #list li{
+            width:100%;
+            text-align: center;
+            line-height:50px;
+            height:50px;
+            border-bottom: 1px dashed pink;
+        }
+    </style>
+</head>
+<body>
+<ul id="list">
+
+</ul>
+<div></div>
+<script>
+    var ary = ["习近平在十九大精神研讨班开班式上发表讲话","习近平在十九大精神研讨班开班式上发表讲话","习近平在十九大精神研讨班开班式上发表讲话","习近平在十九大精神研讨班开班式上发表讲话","习近平在十九大精神研讨班开班式上发表讲话"];
+    var  list = document.getElementById("list");
+    //数据绑定
+    // 1.创建li
+//    for(var i=0;i<ary.length;i++){
+//        var curLi = document.createElement("li");
+//        curLi.innerHTML = ary[i];
+//        list.appendChild(curLi)
+//    }
+    // 2. 文档碎片: 临时存储元素
+//    var frg = document.createDocumentFragment();
+//    for(var i=0;i<ary.length;i++){
+//        var curLi = document.createElement("li");
+//        curLi.innerHTML = ary[i];
+//        frg.appendChild(curLi)
+//    };
+//    list.appendChild(frg)// 只引发一次回流；
+
+    //3.字符串拼接
+//    var str ="";
+//    for(var i=0;i<ary.length;i++){
+//        str+="<li>"+ary[i]+"</li>"
+//    };
+//    list.innerHTML = str;
+
+    // 4.es6模板字符串
+    var str = ``;
+    for(var i=0;i<ary.length;i++){
+            str+=`<li>${ary[i]}</li>`
+        };
+    list.innerHTML = str;
+
+    // DOM的回流： 当页面中元素的位置发生改变时，浏览器要对当前及其他元素位置进行重新的计算；那么这样是非常消耗性能的；
+
+    // DOM的重绘： 当页面中元素背景。颜色，字体等样式发生变化时，页面要对其进行重新渲染，这种渲染的机制--> DOM的重绘；
+
+
+
+</script>
+</body>
+</html>

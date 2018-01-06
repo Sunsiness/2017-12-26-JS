@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        Array.prototype.a = function () {
+            // this--->ary
+            var total = 0;
+            for(var i=0;i<this.length;i++){
+                if(typeof this[i]==="number"){
+                    total += this[i]
+                }
+            };
+            return total;
+        };
+//    function average() {
+//        // arguments : 实参集合
+//        // 排序
+////        arguments.sort()
+//        console.log(arguments.__proto__);
+//        //1.for
+//        var  ary = [];
+////        for(var i=0;i<arguments.length;i++){
+////            ary.push(arguments[i]);
+////        };
+//        ary = Array.prototype.slice.call(arguments,0)
+//        ary.sort(function (a,b) {
+//            return a-b;
+//        })
+//        ary.pop();
+//        ary.shift();
+//        console.log(parseFloat((ary.a()/ary.length).toFixed(2)));
+//    };
+//    average(9.8,9.5,9.7,9.9,9.6,10,9.0,6,8.9,9.3)
+
+//  ary.slice()//复制数组
+//    Array.prototype.slice = function () {
+//        var ary = [];
+//        for(var i=0;i<this.length;i++){
+//            ary.push(this[i])
+//        };
+//        return ary;
+//    }
+
+    function average() {
+        [].sort.call(arguments,function (a,b) {
+            return a-b;
+        });
+        [].pop.call(arguments);
+        [].shift.call(arguments);
+
+    }
+    average(9.8,9.5,9.7,9.9,9.6,10,9.0,6,8.9,9.3)
+</script>
+</body>
+</html>

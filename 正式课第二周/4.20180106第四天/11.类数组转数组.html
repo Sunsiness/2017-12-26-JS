@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    // 类数组： 类似于数组
+    var oDivs = document.getElementsByTagName("div");
+    console.log(oDivs instanceof Array);// false
+//    oDivs.pop()
+    // 1. for循环
+//    var  ary = []
+//    for(var i=0;i<oDivs.length;i++){
+//        ary.push(oDivs[i]);
+//    }
+
+    // 2.slice
+//    ary = Array.prototype.slice.call(oDivs)
+//    console.log(ary);
+
+    //
+//    if("previousElementSibling" in  curEle){
+//
+//    }
+    // try  catch  : Js 异常捕获
+
+    try{
+        console.log(num)
+    }catch(e){
+        console.log(e);// 代表错误信息；
+        console.log(100)
+    }
+    function toArray(likeAry) {
+        var ary = [];
+        try {
+            ary=Array.prototype.slice.call(likeAry);
+        }catch (e){
+            for (var i=0;i<likeAry.length;i++){
+                ary.push(likeAry[i]);
+            }
+        }
+        return ary
+    };
+
+    toArray(oDivs)
+
+
+
+
+</script>
+</body>
+</html>

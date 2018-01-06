@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Fn() {
+
+    }
+    Fn.prototype.pop= function () {
+        console.log(1);
+    }
+    var f=new Fn;
+    var p = new Fn;
+    f.pop();
+
+    // Array : 内置数组类
+    console.log(Array.prototype);
+    var  arr =[12,88,99,"78",90,"15px"];
+//    ary.pop();
+//    ary.a()
+
+//    Array.prototype.a = function () {
+//        // this--->ary
+//        var total = 0;
+//        for(var i=0;i<this.length;i++){
+//            if(typeof this[i]==="number"){
+//                total += this[i]
+//            }
+//        };
+//        return total;
+//    };
+//    console.log(arr.a());
+//    console.log(Array.prototype);
+
+//    function Fn() {
+//
+//    }
+//    Fn.prototype = {
+//        // 失去内置的constructor属性；
+//        constructor:Fn,
+//        a:function () {
+//            console.log(1);
+//        },
+//        b : function () {
+//
+//    }
+//    };
+//    var f = new Fn;
+//    console.log(Fn.prototype);
+//    f.a()
+
+//    Array.prototype = {
+//        // 内置的类不允许进行修改，只可以新增Array.prototype.getX
+//
+//    };
+//    console.log(Array.prototype);
+
+
+</script>
+</body>
+</html>
