@@ -83,6 +83,9 @@
 
     var a = document.createElement("div");
     document.body.appendChild(a);
+    var b=a.cloneNode(false)
+    document.body.insertBefore(b,a)
+
 
     // 1. previousSibling;
     // previousElementSibling
