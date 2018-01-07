@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box{
+            width:100px;
+            height:100px;
+            background: red;
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+//    var reg = /\d+/;
+//    console.log(reg.exec("zhufeng12peixun34"));// ["12", index: 7, input: "zhufeng12peixun34"]
+//    console.log(reg.exec("zhufeng12peixun34"));//["12", index: 7, input: "zhufeng12peixun34"]
+
+    // 捕获的返回值是一个数组；
+    // 1.捕获的内容
+    // 2.捕获内容开始的索引
+    // 3.input : 要捕获的整个内容；
+    // 正则捕获的性质：
+    // 1. 懒惰性
+    // 当正则不做任何处理情况下，那么正则一旦捕获到内容，那么不继续向后进行查找捕获；这种捕获的性质--> 正则捕获的懒惰性
+    // 正则修饰符
+    // g : global (全局)
+     // 取消捕获的懒惰性
+    // i : ignoreCase (忽略大小写)
+      // m : multiline (多行匹配)
+//
+//    var reg = /\d+/g;
+//    // g : 当正则捕获时，正则会对每一次捕获记录捕获的最后一字符的索引，放在正则lastIndex属性值上，那么下一次再进行捕获，需要从新的索引开始；
+//    console.log(reg.lastIndex);
+//console.log(reg.exec("zhufeng12peixun34"));// ["12", index: 7, input: "zhufeng12peixun34"]
+//console.log(reg.lastIndex);
+//    console.log(reg.exec("zhufeng12peixun34"))// ["34", index: 15, input: "zhufeng12peixun34"]
+//console.log(reg.lastIndex);
+//console.log(reg.exec("peixun12peixun34peixun56"))// ["56", index: 22, input: "peixun12peixun34peixun56"]
+    // 获取不到结果，没有找到和正则模型相匹配的内容，返回值是null；
+
+    // 2. 贪婪性
+
+
+//    var reg = /\d+?/g;
+//
+//    console.log(reg.exec("zhufeng1234peixun3456"));//["1", index: 7, input: "zhufeng1234peixun3456"]
+//    console.log(reg.exec("zhufeng1234peixun3456"));//["2", index: 8, input: "zhufeng1234peixun3456"]
+    //? :放在量词的后面，取消捕获的贪婪性；
+
+    //3.在分组中的捕获
+//  不仅大正则要进行捕获，而且小括号中的正则也要对其进行捕获；
+//    var reg = /^-?(\d|([1-9]\d+))(\.\d+)?$/;
+//    console.log(reg.exec("66.88"));// ["66.88", "66", "66", ".88", index: 0, input: "66.88"]
+//    console.log(reg.exec("6.88"));// ["6.88","6",undefined,".88",index: 0, input: "6.88"]
+     //  ?:放在小括号的最前面，只匹配，不捕获；
+    var reg = /-?([1-9]\d+)(\.\d+)?/g;
+//    console.log(reg.test("6.89"));// true
+//    console.log(reg.exec("66.88"));
+
+    // opacity : 0.9;
+ console.log(reg.exec("alpha(opacity=30)"));
+
+
+</script>
+</body>
+</html>
