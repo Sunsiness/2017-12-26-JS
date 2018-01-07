@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.正则的组成
+//    var  reg = /1/;
+//    console.log(reg.test("2"));// false
+//    console.log(reg.test("21"));// true
+//    var reg = /abcd/;
+//    console.log(reg.test("abcdrf"));// true
+//    console.log(reg.test("ab"));// false
+//    console.log(reg.test("absscd"));// false
+
+//    var  reg = /\d/;
+//    console.log(reg.test("d"));//false
+
+    // \ : 将后面的一个字符转义成特殊字符
+    // ^ : 以什么什么开头；
+    // $ : 以什么什么结尾
+    // . : 匹配除了“\n”以外任意单个字符
+
+    // 量词元字符： 修饰个数，出现次数
+    // + : 出现一次到多次
+    // * : 出现0到多次
+    // ? : 出现0到一次；
+    // {n} : 出现n次
+    // {n,m} : 出现n 到m次
+    // {n,} : 出现n 到多次；
+
+
+
+
+//    var reg = /^\d/;
+//    console.log(reg.test("1n12ui"));// true
+//    reg = /^\d$/;
+//    console.log(reg.test("123"))// false
+//    reg = /^\d+$/;
+//    console.log(reg.test("123"))// true
+
+//    reg = /\d*/;
+//    console.log(reg.test("huhu"));
+
+//    reg = /^\d?$/;
+//    console.log(reg.test("111"));// false
+
+//    reg = /./;
+//    console.log(reg.test("&"));
+
+
+    // x|y : 匹配x或y
+    // [xyz]: xyz任意一个
+    // [^xyz] : 只要包含不是xyz中任意一个都是true；
+    // [a-z] : 匹配a到z中任意字符；
+    // [^a-z]:除了a-z
+
+//    reg = /a|bcd/;// 匹配a 和bcd
+//    console.log(reg.test("acd"));
+//    reg = /(a|b)cd/;// 匹配acd  和bcd;
+//       reg = /[abc]/;
+    //    console.log(reg.test("axy"));// true
+
+//   reg = /[^abc]/;
+//    console.log(reg.test("a"));// false
+//    console.log(reg.test("abcd"));// false
+//    var reg = /[a-zA-Z0-9]/;
+//    console.log(reg.test("A"));// true
+//    reg = /[^a-z]/;
+//    console.log(reg.test("A"));
+
+
+    // \b : 匹配一个单词边界
+    // \d : 匹配0-9的数字
+    // \D : 匹配不是0-9 的字符
+    // \w : 包含下划线的单词字符 [a-zA-Z0-9_]
+    // \W : [^a-zA-Z0-9_]
+
+//    var reg =/\b/;
+//    console.log(reg.test("has id"));
+    // "my  name is Niu,i am  18"
+</script>
+</body>
+</html>

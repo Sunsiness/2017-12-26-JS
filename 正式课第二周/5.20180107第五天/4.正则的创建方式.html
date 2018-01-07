@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. 字面量方式
+//    var obj = {};
+    var name = "zhufeng"
+//    var  reg = /\dname/;
+//    console.log(reg.test("2zhufeng"));// false
+//    console.log(reg.test("2name"));// true
+//    var  reg = /\d"+name+"/;
+//    console.log(reg.test("2zhufeng"));// false
+//    console.log(reg.test("2name"));// false
+//    console.log(reg.test('2"nameeee"'));// true
+
+    // 2.实例创建
+//    var reg = new RegExp("\d");//   /d/
+//
+//    console.log(reg.test("12"));// false
+//    console.log(reg.test("d"));// true
+//    var reg = new RegExp("\\\d");
+//    console.log(reg);//  /\d/
+//
+//    console.log(reg.test("12"));// true
+
+    var reg = new RegExp("\\d"+name);
+    console.log(reg);
+
+    // 实例创建和字面量方式创建区别
+    // 实例创建的正则中可以引入变量；
+</script>
+</body>
+</html>
