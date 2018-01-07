@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. 数据类型检测
+    // 基本数据类型和引用数据类型
+    // number  string  boolean  null undefined
+    // object  array  regExp  Math  Date...
+
+    //1. typeof
+    // 1. 返回值： 是一个字符串，字符串中内容是当前数据类型
+    // 局限性：
+    // 1. typeof null --->"object"
+    //2. 不能细分对象数据类型中具体的数据类型；
+//    console.log(typeof  12);// "number"
+//    console.log(typeof  "12");// "string"
+//    console.log(typeof  NaN);// "number"
+//    console.log(typeof  null);// "object"  空对象指针
+//    console.log(typeof  undefined);// "undefined"
+//    function fn() {}
+//    console.log(typeof fn);// "function"
+
+//    console.log(typeof Object);// "function"
+//
+//    var  n= new Number(18);
+//    console.log(typeof n);// "object"
+
+
+    // 2.intanceof: 检测当前实例是否属于某个类的方法，是返回true，不是返回false
+
+    // 1. 通过字面量方式创建的基本数据类型值，不是一个标准的实例，通过instanceOf 不能检测其数据类型；
+    // 2. 只要当前类在当前实例的原型链上，结果都返回true；
+//    var  ary = [];
+//    var  obj = {};
+//    var  reg = /\d/;
+//    console.log(ary instanceof Array);// true
+//    console.log(obj instanceof Array);// false
+//    console.log(reg instanceof RegExp);// true
+//    console.log(ary instanceof Object);
+//    function fn() {}
+//    console.log(fn instanceof Object);///true
+    //    var  num = 10;
+//    var  n = new Number(12);
+//    console.log(num instanceof Number);// false
+//    console.log(n instanceof Number);// true
+    // 3.constructor : 构造函数
+
+//    var  ary = [];
+//    var obj = {};
+//    console.log(ary.constructor===Array);// true
+//    console.log(obj.constructor === Object);
+//    console.log(ary.constructor === Object);// false;
+//
+//    function Fn() {
+//
+//    };
+//    Fn.prototype ={
+//
+//    }
+    // 4.Object.prototype.toString.call();
+    // 返回值： 返回一个字符串，"[object 当前类]"
+    console.log(Object.prototype.toString.call([]));//"[object Array]"
+    console.log(Object.prototype.toString.call(1));//"[object Number]"
+    console.log(Object.prototype.toString.call(null));//"[object Null]"
+    console.log(Object.prototype.toString.call(undefined));//"[object Undefined]"
+    function fn() {}
+    console.log(Object.prototype.toString.call(fn));//"[object Function]"
+    console.log(Object.prototype.toString.call({}));//"[object Object]"
+    console.log(toString.call([]));
+    console.log(toString.call(null));
+
+
+    //    function fn(num) {
+//        if(typeof num === "undefined"){
+//
+//        };
+//        if(typeof num==="function"){
+//            num()
+//        }
+//    }
+//    function A() {
+//
+//    }
+//    fn(1);
+//    fn();
+//    fn(A);
+</script>
+</body>
+</html>

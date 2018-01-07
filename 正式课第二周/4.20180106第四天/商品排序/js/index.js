@@ -35,7 +35,7 @@ for(var i=0;i<data.length;i++){
           <span>${cur.time}</span>
           <span>${cur.hot}</span>
           <span>${cur.price}</span>
-</li>`
+    </li>`
 };
 list.innerHTML = str;
 // 3.循环绑定点击事件
@@ -43,9 +43,11 @@ for(var i=0;i<nav.length;i++){
     nav[i].index = i;
     nav[i].flag = -1;// 1
     nav[i].onclick = function () {
+
         this.flag *=-1;
         // this-->nav[i]
         sortList.call(this)
+
     }
 }
 // 4.排序
@@ -57,6 +59,7 @@ function sortList() {
     var dataAry = ["data-time","data-hot","data-price"];
     ary.sort(function (a,b) {
         // a,b --->
+        // 通过getAttribute获取自定义属性的属性值，如果这个属性不存在，获取的结果是null；
         var  cur = a.getAttribute(dataAry[that.index]);
         var  nex = b.getAttribute(dataAry[that.index]);
         if(that.index===0){
@@ -65,6 +68,7 @@ function sortList() {
         }
         return (cur-nex)*that.flag;
     });
+
     var frg =document.createDocumentFragment();
     for(var i=0;i<ary.length;i++){
         var  curLi = ary[i];
