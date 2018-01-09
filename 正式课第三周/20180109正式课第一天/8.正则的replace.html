@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // replace : 字符串中替换
+//    var str = "2017/07-09-2018-02-09";
+//    str.replace("-","").replace("-","");// "20170709";
+//    console.log(str);//原有字符串不变
+
+//    var  reg = /-/g;
+//    var  newStr = str.replace(reg,"/")
+//    console.log(newStr);
+
+    // replace :如果第一个参数是正则，那么正则会默认去这个字符串进行捕获，把捕获内容用第二个参数进行替换；
+    var  reg = /\d+/g;
+    var str = "zhufeng123zhufeng345zhufeng567"
+    var  newStr = str.replace(/\d+/g,function () {
+        // 1.回调函数的执行跟捕获的次数有关，捕获多少次，那么函数就执行多少次；
+        // 2. return + 内容： 会把捕获的内容进行替换；
+        // arguments:["123", 7, "zhufeng123zhufeng345zhufeng567", callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        //arguments 第一项 是捕获的内容；第二项捕获内容开始的索引，第三个代表要捕获的着整个字符串
+//        console.log(arguments);
+//        console.log(1);
+        return "peixun";
+    })
+    console.log(newStr);
+
+
+</script>
+</body>
+</html>

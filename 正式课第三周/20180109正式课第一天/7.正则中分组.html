@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.改变正则的优先级
+
+//    var  reg = /^(1[89]|[2-5]\d|6[0-5])$/;
+//    reg.test("189")
+
+    // 2.正则的分组引用
+//    var  reg = /^(\w)(\w)\1\2$/;// \1  代表和第一个分组出现一模一样的内容
+
+//    console.log(reg.test("aa"));// false
+//    console.log(reg.test("ab"));//false
+//    console.log(reg.test("abab"));// true
+//    console.log(reg.test("abaa"));// false
+//    var  reg = /^(\w)(\d)\1\2$/;
+//    console.log(reg.test("a2a3"));// false
+
+
+    // 3. 捕获: 不仅要对大正则内容进行捕获，而且还要对小正则内容进行捕获；
+
+    // 在小括号的前面加上一个？: ，那么只匹配不捕获
+//    var reg = /^(?:[1-9]\d)(?:\.\d+)$/;
+//   // console.log(reg.exec("18"));// ["18", "18", index: 0, input: "18"]
+//    console.log(reg.test("19.99"));// true
+//    console.log(reg.exec("19.99"));//["19.99", index: 0, input: "19.99"]
+
+</script>
+</body>
+</html>
