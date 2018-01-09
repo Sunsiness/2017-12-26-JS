@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 中间类继承
+
+
+    function average() {
+        //
+//        var  ary = Array.prototype.slice.call(arguments);
+//        ary.sort(function (a,b) {
+//            return a-b;
+//        });
+        // arguments 是对象数据类型的，没有prototype属性；
+        //arguments.prototype = new Array;
+         //在IE10 及以下，浏览器不允许调用对象的__proto__属性；
+        arguments.__proto__ = Array.prototype;
+//        Object.prototype = Array.prototype;//
+        // 内置类的原型的空间地址是不可以被覆盖的，但是可以新增方法；
+        arguments.sort(function (a,b) {
+            return a-b;
+        });
+        arguments.pop();
+        console.log(arguments);
+
+    }
+    average(99,98,96,95,90,93,92)
+
+
+
+</script>
+</body>
+</html>

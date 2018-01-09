@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function A() {
+        this.x = 100;
+        this.y  =200;
+        this.getY = function () {
+            console.log(1)
+        }
+    };
+    A.prototype.getX = function () {
+        console.log(this.x)
+    }
+    var  a = new A;
+    a.getX();
+    function B() {
+       this.x =10;
+    }
+//    B.prototype = A.prototype;
+//    var b = new B;
+    // 入过在B的原型改变之前创建实例，那么这个实例的__proto__ 会指向B初始状态的原型地址；不会找到最新的B的prototype；
+//    console.log(b.constructor);
+//    b.getX();
+    // getY ： B.prototype = A.prototype;是A的一个私有属性；B的实例只继承了A的公有属性；
+//    b.getY();
+
+    // 既可以继承公有，又可以私有属性；
+    B.prototype = new A;
+    // 让B这个类的原型指向类A的实例；
+    var b = new B;
+    b.getY();
+    b.getX();
+// b通过__proto__这个属性先找到类A的实例，及类A实例私有属性，然后会通过__proto__继续向上查找，查到A的原型，然后再通过__proto__找到Object的原型；
+    // 原型继承： 把A的实例赋值给类B的原型，不仅可以继承A的私有属性还可以继承公有属性，这种继承方式--->“原型继承”
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function A() {
+        this.x = 10;
+        this.y = 100;
+        this.getX = function () {
+            console.log(1);
+        }
+    };
+    A.prototype.getX = function () {
+        console.log(this.x);
+    }
+    function B() {
+        // this---> B的实例；
+        this.a = 100;
+        // 体现A的函数角色；
+//        this.x = 10;
+//        this.y = 100;
+        A.call(this);
+        this.getX = function () {
+            console.log(2);
+        }
+    };
+    var b = new B;
+    console.log(b);
+    // call继承： 类A在类B中执行，并且改变了A函数中this指向，让其指向B的实例；
+    // call 继承只继承类的私有属性，不继承公有属性；
+    // b 实例的原型链不发生任何变化；
+    b.getX();
+</script>
+</body>
+</html>

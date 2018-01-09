@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var obj = {a:10,age:100};
+//    var  obj1 = new Object(obj.__proto__);
+//    console.log(obj1);
+//
+//    function A() {
+//       this.getY  = function () {
+//
+//       }
+//    };
+//    A.prototype.getX = function () {
+//        console.log(1)
+//    }
+//    function B() {
+//        // 继承了类A的私有属性
+//        A.call(this);
+//    }
+    //继承了类A公有属性；
+//    B.prototype = new Object(A.prototype);
+//    console.log(B.prototype);
+//    var  b = new B;
+//    b.getX();
+//    b.getY();
+
+    // create : 是Object这个类的私有属性，方法返回值是创建一个对象来；创建的这个对象__proto__没有直接指向Object的原型，而是指向传进来的实参；
+    var  obj = {a:100,b:200};
+    var  obj1 = Object.create(obj);
+    console.log(obj1);
+
+    function A() {
+       this.getY  = function () {
+
+       }
+    };
+    A.prototype.getX = function () {
+        console.log(1)
+    }
+    function B() {
+        // 继承了类A的私有属性
+        A.call(this);
+    }
+   //继承了类A公有属性；
+    B.prototype = Object.create(A.prototype);
+    // B.prototype.__proto__--->A.prototype;
+    console.log(B.prototype);
+    var  b = new B;
+    b.getX();
+    b.getY();
+
+    
+</script>
+</body>
+</html>
