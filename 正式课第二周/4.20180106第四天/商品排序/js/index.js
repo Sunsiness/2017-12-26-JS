@@ -63,7 +63,7 @@ function sortList() {
         var  cur = a.getAttribute(dataAry[that.index]);
         var  nex = b.getAttribute(dataAry[that.index]);
         if(that.index===0){
-            cur =cur.replace("-","").replace("-","")
+            cur =cur.replace("-","").replace("-","");
             nex =nex.replace("-","").replace("-","")
         }
         return (cur-nex)*that.flag;
