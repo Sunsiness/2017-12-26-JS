@@ -23,7 +23,7 @@
     }
 //    B.prototype = A.prototype;
 //    var b = new B;
-    // 入过在B的原型改变之前创建实例，那么这个实例的__proto__ 会指向B初始状态的原型地址；不会找到最新的B的prototype；
+    // 如果在B的原型改变之前创建实例，那么这个实例的__proto__ 会指向B初始状态的原型地址；不会找到最新的B的prototype；
 //    console.log(b.constructor);
 //    b.getX();
     // getY ： B.prototype = A.prototype;是A的一个私有属性；B的实例只继承了A的公有属性；
