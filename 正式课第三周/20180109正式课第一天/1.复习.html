@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 原型深入  (call  apply  bind)  类数组转数组  异常捕获  DOM映射
+    // sort 深入  数据绑定   ajax  DOM的回流和重绘
+
+//    // 原型深入 ：
+//    var ary = [12,88,99];
+//    var ary1 = [123,888,999];
+//    ary.pop()
+//    // ary.__proto__ = Array.prototype
+//
+//    Array.prototype.total = function () {
+//
+//    };
+//    ary.total();
+//
+//    String.prototype.dis = function () {
+//
+//    }
+    // Function   : 是一个函数的基类： 所有的函数都是Function的一个实例
+    // Object : 是一个对象的基类，所有的对象都是Object的一个实例；
+    // 实例都是对象数据类型的；
+//    function fn() {
+//
+//    };
+//    console.log(fn instanceof Function);
+    // 函数三种角色： 普通函数 类 对象
+    //   fn();
+    // 类和普通函数：
+    //    function fn() {
+    //       this.x  = 100;
+    //    };
+    //    new fn;
+    //    fn()
+
+    // call  apply  bind  : 改变this关键字
+    // call :
+    // apply : 第二个及以后的参数都放进数组中；
+    // bind : 预处理this，传参和call一样；
+//    function fn(n,m) {
+//
+//    };
+//    fn.call(16,90,9);
+//    fn.apply(16,[90,9]);
+//    var  ary = [12,8,9,10,66,77];
+
+    //console.log(Math.max.apply(n, ary));
+//    console.log(n)
+    
+//    function toArray(likeAry) {
+//        var ary=[];
+//        try {
+//            ary=Array.prototype.slice.call(likeAry);
+//        }catch (e){
+//            for (var i = 0; i < likeAry.length; i++) {
+//                var cur = likeAry[i];
+//                ary.push(cur);
+//            }
+//        }
+//        return ary;
+//    };
+
+    // sort :
+//    var ary = [{age:10},{age:100},{age:1},{age:0}];
+//    ary.sort(function (a,b) {
+//        return a.age-b.age;
+//    });
+
+    // 文档碎片： 减少DOM的回流；
+
+
+    // 数据绑定
+    // 1.创建响应的标签
+    // 2.文档碎片
+    // 3.字符串拼接
+    // 4. es6 模板字符串；
+
+    // 求平均数
+    // arguments :
+
+
+
+
+
+    // 正则
+
+
+
+</script>
+</body>
+</html>

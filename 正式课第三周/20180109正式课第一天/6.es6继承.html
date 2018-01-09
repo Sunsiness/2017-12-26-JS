@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // class : 定义一个类
+//    function Fn() {
+//
+//    }
+    class Fn{
+        constructor(num){
+            console.log(num)
+            // this --->A的实例；
+            this.num = num;
+            var  a =1;
+        }
+        getX(){
+            console.log(1)
+        }
+        getNum(){
+
+        }
+    };
+    // extends : 类A继承了类Fn 私有属性和公有属性；参数通过super传进来；
+    class A extends Fn{
+        constructor(num){
+            // 这个super解决当前constructor中的this问题；
+            super(num);// 把Fn中的this拿到这个函数体中，所以没有就报错；
+
+        }
+        getN(){
+
+        }
+    }
+
+//    var  f = new Fn(10);
+//    console.log(f);
+//    f.getX();
+    var  a  = new A(10);
+    a.getX()
+    console.log(a);
+
+
+</script>
+</body>
+</html>
