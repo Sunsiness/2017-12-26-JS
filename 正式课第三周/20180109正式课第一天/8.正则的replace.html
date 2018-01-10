@@ -14,20 +14,51 @@
 //    var  reg = /-/g;
 //    var  newStr = str.replace(reg,"/")
 //    console.log(newStr);
+//
+//    // replace :如果第一个参数是正则，那么正则会默认去这个字符串进行捕获，把捕获内容用第二个参数进行替换；
+//    var  reg = /\d+/g;
+//    var str = "zhufeng123zhufeng345zhufeng567"
+//    var  newStr = str.replace(/\d+/g,function () {
+//        // 1.回调函数的执行跟捕获的次数有关，捕获多少次，那么函数就执行多少次；
+//        // 2. return + 内容： 会把捕获的内容进行替换；
+//        // arguments:["123", 7, "zhufeng123zhufeng345zhufeng567", callee: ƒ, Symbol(Symbol.iterator): ƒ]
+//        //arguments 第一项 是捕获的内容；第二项捕获内容开始的索引，第三个代表要捕获的着整个字符串
+////        console.log(arguments);
+////        console.log(1);
+//        return "peixun";
+//    })
+//    console.log(newStr);
 
-    // replace :如果第一个参数是正则，那么正则会默认去这个字符串进行捕获，把捕获内容用第二个参数进行替换；
-    var  reg = /\d+/g;
-    var str = "zhufeng123zhufeng345zhufeng567"
-    var  newStr = str.replace(/\d+/g,function () {
-        // 1.回调函数的执行跟捕获的次数有关，捕获多少次，那么函数就执行多少次；
-        // 2. return + 内容： 会把捕获的内容进行替换；
-        // arguments:["123", 7, "zhufeng123zhufeng345zhufeng567", callee: ƒ, Symbol(Symbol.iterator): ƒ]
-        //arguments 第一项 是捕获的内容；第二项捕获内容开始的索引，第三个代表要捕获的着整个字符串
+
+//    var str ="201801101108";
+//    var ary=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"];
+//    var reg =/\d/g;
+//    str=str.replace(reg,function () {
+//        var wy=arguments[0]
+
+//
+//    })
+
+
+//
+//    var str ="2018-01-10 11:52:30";
+//var time =["年","月","日","时","分","秒"];
+//
+//  str.replace(/[-: ]/g,function () {
+//   })
+
+
+
+
+//    var str ="my name is {0},i am {1} years old,my hobby is{2}";
+//    var ary =["王云成","18","playing game"];
+////    var i=0;
+//    str.replace(/\{(\d)\}/g,function () {
 //        console.log(arguments);
-//        console.log(1);
-        return "peixun";
-    })
-    console.log(newStr);
+//    })
+
+             var str ="88122333889876";
+       var reg
 
 
 </script>

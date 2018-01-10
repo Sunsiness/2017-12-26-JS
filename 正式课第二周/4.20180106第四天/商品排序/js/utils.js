@@ -9,10 +9,10 @@ var utils = (function () {
             for(var i=0;i<likeAry.length;i++){
                 var  cur = likeAry[i];
                 ary.push(cur);
-            };
+            }
         }
         return  ary;
-    };
+    }
     function toJSON(val) {
        return  "JSON"  in window?JSON.parse(val) : eval("("+val+")")
     }
