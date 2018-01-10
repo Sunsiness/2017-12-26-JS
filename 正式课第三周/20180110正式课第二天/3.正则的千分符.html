@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str ="99122333889876";
+ //    str = "88,122,333,889,876";
+    var  reg = /^(\d{1,3})((\d{3})+)$/;
+    var  newStr = "";
+    str.replace(reg,function () {
+        // reg这个正则捕获的内容
+        console.log(arguments)//
+        var  part1 = arguments[1];
+        // part2 位数是3的整数倍
+        var  part2 = arguments[2];
+        newStr+=part1+","+part2.replace(/\d{3}(?!\b)/g,function () {
+                return arguments[0] +","
+            });
+    });
+    console.log(newStr);
+
+
+</script>
+</body>
+</html>
