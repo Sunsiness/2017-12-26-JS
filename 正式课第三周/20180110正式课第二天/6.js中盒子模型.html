@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box{
+            margin:30px auto;
+            width:300px;
+            height:20px;
+            background: red;
+            padding:10px;
+            border:10px solid #ee44dd;
+        }
+    </style>
+</head>
+<body>
+<div class="box">业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随业精于勤荒于嬉，行成于思毁于随</div>
+<script>
+    var  oBox = document.getElementsByClassName("box")[0];
+    // 1.clientWidth clientHeight
+    // clientWidth = 内容宽度+ 左右padding；
+    // clientHeight= 内容高度+ 上下padding
+    //console.log(oBox.clientWidth);// 320;
+    // 浏览器可视窗口的宽度和高度
+//    var winW = document.documentElement.clientWidth || document.body.clientWidth;
+//    var winH = document.documentElement.clientHeight || document.body.clientHeight;
+
+    // 2.clientTop : 上边框高度
+    // clientLeft : 左边框的宽度；
+//    console.log(oBox.clientTop);// 10
+//    console.log(oBox.clientLeft);// 10
+    // console.log(oBox.clientRight);// 没有这个属性
+
+    // 3. offsetWidth : clientWidth + 左右border的宽度
+    // offsetHeight : clientHeight + 上下border的高度；
+//    console.log(oBox.offsetWidth);
+//    console.log(oBox.offsetHeight);
+
+    //4.scrollWidth
+    // scrollHeight
+    // 在这个盒子内容没有溢出的情况下，那么scrollWidth 和clientWidth 的大小时一样的
+    // scrollHeight和clientHeight 是一样的
+    // 在这个盒子内容有溢出的情况下，那么盒子的scrollHeight 是paddingTop + 真实内容的高度；
+    // scrollWidth 是一个左padding+ 真实内容的宽度
+
+    console.log(oBox.scrollHeight);
+
+
+</script>
+</body>
+</html>

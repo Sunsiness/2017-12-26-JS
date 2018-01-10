@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+   // 1.typeof :
+   //1. 返回一个字符串，字符串中内容是当前的数据类型
+    //2.instanceof : 检测实例是否属于某个类
+    // 1. 字面量方式创建基本数据类型不是一个标准的实例，不能用这个检测
+    // 2. 只要这个类在当前实例的原型链上都返回true；
+//    function fn() {
+//        arguments.__proto__ =new  Array;
+//        console.log(arguments instanceof Array);// true
+//        console.log(arguments.constructor);// Array
+//    }
+//    fn();
+//    fn.prototype = {
+//
+//    }
+//   var  a = 10;
+//   console.log(a instanceof Number);
+    // 3.constructor : 构造函数
+
+//    var  ary = [];
+//   console.log(ary.constructor===Array);
+ //
+//   console.log(Object.prototype.toString.call([]));// "[object Array]"
+//   console.log(Object.prototype.toString.call({}));// "[object Object]"
+   //console.log(Object.prototype.toString.call(1));// "[object Number]"
+
+   (function () {
+       // 初始化所有数据类型的一个对象
+       var obj = {
+           isNumber: "Number",
+           isString : "String",
+           isBoolean : "Boolean",
+           isNull : "Null",
+           isUndefined : "Undefined",
+           isObject: "Object",
+           isArray: "Array",
+           isRegExp: "RegExp",
+           isFunction:"Function"
+       };
+       // 初始化对象；接收当前的所有的方法；
+       var checkType = {};
+//        循环上面对象；给checkType 这个对象新增键值对： 属性名是obj的属性名；属性值是函数
+       for(var key in obj){
+           // 属性值是自执行函数的返回值；
+           checkType[key] = (function () {
+               // return出一个引用数据类型，并且被外界接收，所以当前作用域不销毁；
+               // 储存值：
+               var name = obj[key];
+               return function (val) {
+                   // 当前正则中需要变量，所以必须采用实例创建；
+                    var  reg = new RegExp("\\[object "+name+"\\]");
+                    // 通过检测Object原型上的toString 方法改变this之后方法执行的返回值；
+                    return reg.test(Object.prototype.toString.call(val));
+               }
+           })();
+       }
+       window.checkType = checkType;
+
+//       console.log(checkType.isNumber(12));
+
+   })();
+   console.log(checkType.isNumber("12"));
+   console.log(checkType.isString("12"));
+   console.log(checkType.isObject({}));
+   console.log(checkType.isObject([]));
+   console.log(checkType.isNull(null));
+
+   var res = new RegExp("\\d");
+   console.log(res);
+
+</script>
+</body>
+</html>
