@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 继承 ：
+//    Array.prototype.pop= function () {
+//
+//    }
+//    var  ary = [];// __proto__:xxxfffooo
+//    console.log(ary.__proto__ === Array.prototype);// true
+//    ary.pop()
+//  原型继承： 继承私有和公有
+//    function A() {
+//
+//    };
+//    var  a = new A;
+////    A.prototype.pop= function () {
+////
+////    }
+//    A.prototype = new Array;// --->Array.prototype
+//    a.pop()
+    // call继承 : 继承私有属性
+//    function A() {
+//        this.a = 10;
+//    }
+//    function B() {
+//        // this---> B 的实例
+//        A.call(this)
+//        this.a = 10;
+//    };
+//    var  b = new B;
+
+    // 中间类
+    //
+//
+//    function fn() {
+//        //利用了对象数据类型中__proto__属性，改变其地址指向；
+//        // 在IE10 及以下不允许调用这个属性；
+//        arguments.__proto__ =[];
+//        arguments.sort(function (a,b) {
+//
+//        })
+//    }
+
+    // 寄生组合式继承
+
+//    var obj1 = {name:"zhufeng"};
+//    var o = Object.create(obj1);
+//   /// o 这个对象的__proto__ 属性值指向 Object.create这个方法传进的参数；
+//
+//    function A() {
+//
+//    }
+//    function B() {
+//        A.call(this)
+//    };
+//    B.prototype = Object.create(A.prototype)
+//    var  b = new B;
+    //B.prototype.__proto__ === A.prototype// true
+
+    // es6继承
+//    function Fn(m,n) {
+//        var d = 100;
+//        this.x =100;
+//    }
+//    console.log(new Fn);
+
+    // class : 定义一个类
+//
+    // class + 类
+//    class Fn{
+//        constructor(m,n){
+//            var d = 100;
+//            this.x =100;
+//            this.getY= function () {
+//                console.log(2);
+//            }
+//        }
+////         往原型新增方法；
+//        getX(){
+//            console.log(1)
+//        }
+//    };
+//    Fn.prototype.getX = function () {
+//        console.log(2);
+//    }
+//    function A() {
+//
+//    }
+    // 通过class定义一个类的方法名是不允许重复的；
+//    class A extends Fn{
+//        constructor(a){
+//            super();
+//            this.z = a;
+//        }
+//    }
+//    console.log(new A(10,20));
+
+
+    // 正则 ：
+    // 分组
+    // 1. 改变正则的优先级
+    // 2. 分组引用 \1\2 : 代表和第一个分组出现一模一样的内容
+//    var reg = /(\w)\1/;
+//    console.log(reg.test("ab"));
+
+    // 3. 在正则中，不仅大正则要进行捕获，小正则也会进行捕获；
+    // ?:
+    // ?=
+    // ?!
+
+
+    // replace : 替换
+    var str = "hello123HELLO123";
+
+    //str.replace("hello","world")
+//    var  reg = /hello/g;
+     reg = /[a-z]+/ig;
+    console.log(str.replace(reg, "world"));
+
+    //
+    str.replace(reg,function () {
+        // 1.捕获多少次，函数执行多少次；
+        // 2.return出去的内容把捕获的内容进行替换；
+        // 3.arguments 和捕获的内容是很相似的；第一项是捕获的内容，第二项是捕获内容开始的索引，第三项： 要捕获的整个字符串；
+    })
+
+</script>
+
+
+</body>
+</html>

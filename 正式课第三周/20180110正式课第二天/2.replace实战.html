@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "201801101108";
+    var  ary = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"
+    ];
+    // replace : 原有字符串不发生改变；
+     str=str.replace(/\d/g,function () {
+         // 每捕获依稀，函数执行一次； 把相应的内容进行替换；
+         var index= arguments[0];
+         return ary[index]
+     })
+    console.log(str);
+
+
+
+     var str = "2018-01-10 11:52:30";
+     var  time = ["年","月","日","时","分","秒"];
+     var  i=0;
+//     var  newStr = ""
+//     str=str.replace(/\d+/g,function () {
+//         // arguments[0]
+//         // 函数每执行一次，当前索引需要 +1；
+//
+//         newStr+=arguments[0] + time[i++];
+//
+//     });
+//    console.log(newStr);
+//    str= str.replace(/[-: ]/g,function () {
+//        return time[i++];
+//    });
+//    str+=time[i];
+//    console.log(str);
+
+
+    var  str = "my name  is {0},i am {1} years old,my hobby is {2}";
+    var  ary = ["王云成","18","playing game"];
+    str=str.replace(/\{(\d)\}/g,function () {
+        console.log(arguments);
+        return ary[arguments[1]]
+    });
+    console.log(str);
+
+    // str ="my name  is {0},i am {1} years old,my hobby is {2}"
+    // 把所有单词的首字母换成大写；
+
+
+</script>
+</body>
+</html>

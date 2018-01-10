@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+    var  str = "2018-01-10 12:50:00"
+    var  a=str.match(/\d+/g);// 把通过正则捕获的每一项内容，放进数组中；
+    //["2018", "01", "10", "12", "50", "00"]
+//    console.log(a instanceof Array);//  true;
+//    console.log(str.match(/\d+/g));
+    var  ary = ["年","月","日","时","分","秒"];
+    var  newstr = ""
+    for(var i=0;i<a.length;i++){
+        newstr += a[i] + ary[i]
+    };
+    console.log(newstr);
+
+
+</script>
+</body>
+</html>
