@@ -269,16 +269,16 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/珠峰培训/课件/2017第十五期/Javascript201715/正式课第三周/20180109正式课第一天/5.寄生组合式继承.html" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\4.20180106第四天" />
-      <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\3.20180104第三天" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第三周\20180110正式课第二天" />
       <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\4.20180106第四天" />
       <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\mobile" />
       <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\3.20180104第三天\商品排序\js" />
       <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\3.20180104第三天\商品排序\css" />
-      <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\3.20180104第三天\商品排序" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\4.20180106第四天" />
+      <recent name="E:\珠峰培训\课件\2017第十五期\Javascript201715\正式课第二周\3.20180104第三天" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -399,15 +399,15 @@
       <workItem from="1515117828015" duration="25910000" />
       <workItem from="1515288388238" duration="24726000" />
       <workItem from="1515458865784" duration="18607000" />
-      <workItem from="1515545471263" duration="22484000" />
+      <workItem from="1515545471263" duration="22713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="479935000" />
+    <option name="totallyTimeSpent" value="480164000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="2" width="1920" height="1028" extended-state="0" />
+    <frame x="0" y="2" width="1920" height="1028" extended-state="1" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23311897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
