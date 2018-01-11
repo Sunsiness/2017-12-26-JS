@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width :100px;
+            height:100px;
+            background: lightgreen;
+            margin:30px auto;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box"></div>
+<script>
+    // 元素.style.样式不可以获取css设置的样式，但是可以设置元素新样式；
+    var oBox = document.getElementById("box");
+//    oBox.onclick = function () {
+//        this.style.width = 200+"px";
+//        this.style.background= "blue";
+//    };
+
+    function setCss(curEle,attr,value) {
+        // curEle : 当前元素
+        // attr : 属性
+        //value : 要设置的值
+//        处理IE8及透明度
+        if(attr==="opacity"){
+            curEle.style.opacity =
+            curEle.style["opacity"] = value;
+            curEle.style["filter"] = "alpha(opacity="+value*100+")";
+            return;
+        }
+        // px : width  height  margin  padding  left  top  right  bottom paddingLeft...
+        var  reg = /^(width|height|((margin|padding)?(left|rigth|bottom|top)?))$/i;
+        // 上面属性是带px单位的；并且传进来的值不带单位
+        if(reg.test(attr)&&!isNaN(value)){
+            value = value + "px";
+        }
+        curEle.style[attr]= value;
+
+
+    };
+//    setCss(oBox,"height",400);
+//    setCss(oBox,"height",400);
+//    setCss(oBox,"opacity",0.8);
+
+
+    function setGroupCss(curEle,options) {
+        // 利用setCss 设置单个样式；
+        if(typeof options==="object"){
+            for(var key in options){
+                setCss(curEle,key,options[key])
+            }
+        }
+
+
+    }
+
+
+    setGroupCss(oBox,{width:400,height:200,opacity:0.3})
+
+
+</script>
+</body>
+</html>

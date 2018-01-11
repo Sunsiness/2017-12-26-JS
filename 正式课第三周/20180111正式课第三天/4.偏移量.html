@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            position: relative;
+            margin:30px auto;
+            width:300px;
+            height:300px;
+            background: blue;
+            border: 10px solid lightseagreen;
+        }
+        #inner{
+            margin: auto;
+            width:200px;
+            height:200px;
+            background: green
+        }
+        #center{
+            margin:auto;
+            width:100px;
+            height:100px;
+            background: red;
+            border:10px solid lightcoral;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+</div>
+<script>
+    var outer = document.getElementById("outer")
+    var inner = document.getElementById("inner")
+    var center = document.getElementById("center")
+    // 父级节点 ： parentNode
+//    console.log(center.parentNode);// #inner
+//    console.log(inner.parentNode);// #outer
+//    console.log(document.body.parentNode);// html
+//    console.log(document.documentElement.parentNode);// document
+
+    // 父级参照物： offsetParent 在一般情况下，盒子的父级参照物都是指向body的；如果给当前元素加上position:(relative.absolute,fixed.),那么会改变当前元素的子节点的父级参照物指向当前元素；body 的父级参照物是null；
+    // 偏移量： 当前盒子的外边框距离父级参照物内边框的距离；
+//    console.log(center.offsetParent);// body
+//    console.log(inner.offsetParent);// body
+//    console.log(outer.offsetParent);// body
+//    console.log(document.body.offsetParent);// null
+
+    // offsetLeft:左偏移  offsetTop ： 上偏移
+
+//    console.log(center.offsetLeft);
+//    console.log(inner.offsetLeft);
+//    console.log(center.offsetTop);
+//    console.log(inner.offsetTop);
+//    console.log(inner.offsetRight);// undefined
+    // 计算inner距离body的距离
+    function offset(curEle) {
+        var  l = curEle.offsetLeft;
+        var t= curEle.offsetTop;
+        var p = curEle.offsetParent;
+        while(p){// 不知道上面有多少个父级参照物；直到p=null,那么中止循环；
+            // 加上父级参照物的边框的宽度
+            l+=p.clientLeft;
+            t += p.clientTop;
+            // 加上f父级参照物的偏移量
+            l+= p.offsetLeft;
+            t+=p.offsetTop;
+            p = p.offsetParent;
+        };
+        return {left:l,top:t}
+    };
+    console.log(offset(center).left);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width :100px;
+            height:100px;
+            background: lightgreen;
+            margin:30px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox = document.getElementById("box");
+    function getCss(curEle,attr) {
+        var val;
+        if("getComputedStyle" in window){
+            val = getComputedStyle(curEle)[attr];
+        }else{
+            if(attr === "opacity"){
+                var  value = curEle.currentStyle["filter"];
+                var  reg = /^alpha\(opacity=(\d+(\.\d+)?)\)$/g;
+                if(!value){
+                    val = 1;
+                }else{
+                    val = reg.exec(value)[1]/100;
+                }
+            }else{
+                val= curEle.currentStyle[attr];
+            }
+
+        }
+        val = parseFloat(val);
+        return val;
+
+    }
+    function setCss(curEle,attr,value) {
+        if(attr==="opacity"){
+            curEle.style["opacity"] = value;
+            curEle.style["filter"] = "alpha(opacity="+value*100+")";
+            return;
+        }
+        var  reg = /^(width|height|((margin|padding)?(left|rigth|bottom|top)?))$/i;
+        if(reg.test(attr)&&!isNaN(value)){
+            value = value + "px";
+        }
+        curEle.style[attr] = value;
+    };
+    function setGroupCss(curEle,options) {
+        // 利用setCss 设置单个样式；
+        if(typeof options==="object"){
+            for(var key in options){
+                setCss(curEle,key,options[key])
+            }
+        }
+    }
+    function css() {
+        // 通过判断参数的个数以及参数的数据类型
+        var  len = arguments.length,
+             curEle = arguments[0],
+             attr = null,
+            val = null;
+        // 设置css的单个样式
+        if(len === 3){
+            attr = arguments[1];
+            val = arguments[2];
+            setCss(curEle,attr,val);
+            return;// 中止下面的代码不运行
+        }
+        // 设置css的一组样式
+        if(len===2&&typeof arguments[1]==="object"){
+           var  obj = arguments[1];
+           setGroupCss(curEle,obj);
+           return;
+        }
+        // 获取css样式
+        attr = arguments[1];
+        return getCss(curEle,attr);
+
+    };
+//    css(oBox,"width");
+    css(oBox,"width",300);
+    css(oBox,{width:200,height:150,opacity:0.4},{})
+    console.log(css(oBox, "width"));
+
+
+</script>
+</body>
+</html>
