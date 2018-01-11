@@ -58,10 +58,38 @@ var utils=(function () {
         }
         curEle.style[attr] = value;
     };
+    function offset(curEle) {
+        var  l = curEle.offsetLeft;
+        var t= curEle.offsetTop;
+        var p = curEle.offsetParent;
+        while(p){
+            var reg = /MSIE 8.0/;// 检测当前浏览器的版本的正则
+            console.log(reg.test(navigator.userAgent));
+            if(!reg.test(navigator.userAgent)){
+                l+=p.clientLeft;
+                t += p.clientTop;
+            }
+            l+= p.offsetLeft;
+            t+=p.offsetTop;
+            p = p.offsetParent;
+        };
+        return {left:l,top:t}
+    };
+    function win(attr,value) {
+        // 传参 一个参数是获取 两个参数是设置
+        if(typeof value==="undefined"){
+            return document.documentElement[attr] || document.body[attr];
+        }
+        document.documentElement[attr] = value;
+        document.body[attr] = value;
+    }
+
    return {
        checkType:checkType,
        getCss:getCss,
-       setCss:setCss
+       setCss:setCss,
+       offset:offset,
+       win:win
    }
 
 

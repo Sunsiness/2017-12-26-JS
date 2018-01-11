@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        body{
+            height:800px;
+        }
+        #tab{
+            margin:300px auto;
+            width : 100px;
+            height:100px;
+            padding:10px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="tab"></div>
+<script>
+    // 1. 11个属性  ： 是只读属性；不可以进行修改；
+    // clientWidth :
+//    var  tab = document.getElementById("tab");
+//    tab.clientWidth = 300;
+
+
+    // 可读写属性: 既可以获取，而且还可以修改；
+    // scrollTop : 代表纵向滚动条卷去的高度
+    // scrollLeft： 代表横向滚动条卷去的宽度；
+
+   var  scrT =  document.documentElement.scrollTop || document.body.scrollTop;
+   var scrL = document.documentElement.scrollLeft || document.body.scrollLeft;
+   // win :
+   function win(attr,value) {
+       // 传参 一个参数是获取 两个参数是设置
+       if(typeof value==="undefined"){
+           return document.documentElement[attr] || document.body[attr];
+       }
+       document.documentElement[attr] = value;
+       document.body[attr] = value;
+   }
+   win("scrollTop");
+   win("scrollLeft");
+   win("scrollTop",100);
+   win("scrollLeft",100);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

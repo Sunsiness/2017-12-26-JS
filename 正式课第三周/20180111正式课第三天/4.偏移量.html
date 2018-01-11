@@ -54,6 +54,12 @@
 //    console.log(outer.offsetParent);// body
 //    console.log(document.body.offsetParent);// null
 
+    // 1.正则捕获，捕获不到内容
+    // 2.通过id获取元素，获取不到是null;
+    // 3.getAttribute，获取不到属性值结果也是null ;
+    // 4. body的父级参照物也是null；
+    // 5.清空对象的堆内存；
+
     // offsetLeft:左偏移  offsetTop ： 上偏移
 
 //    console.log(center.offsetLeft);
@@ -68,8 +74,14 @@
         var p = curEle.offsetParent;
         while(p){// 不知道上面有多少个父级参照物；直到p=null,那么中止循环；
             // 加上父级参照物的边框的宽度
-            l+=p.clientLeft;
-            t += p.clientTop;
+            // 在IE8浏览器，不是模拟浏览器，当前元素左偏移量会把父级参照物边框计算进去，所以不需要再加边框的宽度；
+//            console.log(navigator.userAgent);// 字符串，代表当前浏览器的版本信息
+            var reg = /MSIE 8.0/;// 检测当前浏览器的版本的正则
+            console.log(reg.test(navigator.userAgent));
+            if(!reg.test(navigator.userAgent)){
+                l+=p.clientLeft;
+                t += p.clientTop;
+            }
             // 加上f父级参照物的偏移量
             l+= p.offsetLeft;
             t+=p.offsetTop;
