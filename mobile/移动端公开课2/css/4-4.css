@@ -1,0 +1,6 @@
+.outer {
+  width: 200px;
+}
+.outer .inner {
+  width: 200px;
+}

@@ -1,0 +1,43 @@
+/**
+浏览器不识别less文件，
+*/
+.transition(@property:all,@time:1s,@timing:linear,@delay:0s){
+  //transition: @property @time @timing @delay;
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+.transform(){
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.outer{
+  width:300px;
+  height:300px;
+  margin:30px auto;
+  border: 1px solid lightblue;
+  .inner{
+    margin:20px auto;
+    width:100px;
+    height:100px;
+    text-align: center;
+    line-height: 100px;
+    background: lightgreen;
+    font-size: 18px;
+    .transition(@time: 1s);
+
+  }
+  &:hover{
+    .inner{
+      .transform()
+    }
+  }
+
+
+
+}

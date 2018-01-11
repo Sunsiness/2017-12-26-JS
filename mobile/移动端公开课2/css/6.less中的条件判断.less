@@ -1,0 +1,19 @@
+.pub(@x) when(@x<10){
+  width:100px;
+  height:100px;
+
+}
+.pub(@x) when(@x>=10){
+  width:200px;
+  height:200px;
+}
+.pub(@x,@y) when(@x=100)  and (@y=200){
+  width:300px;
+  height:500px;
+}
+.outer{
+  .pub(50);
+}
+.inner{
+  .pub(100,200)
+}
