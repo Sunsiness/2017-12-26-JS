@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box{
+            width:200px;
+            height:200px;
+            opacity: 0.8;
+            /*filter:alpha(opacity=60);*/
+        }
+        #a{
+            width:50%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="a"></div>
+</div>
+<script src="utils.js"></script>
+<script>
+    var oBox= document.getElementById("box");
+    // 1.replace ： 原有字符串不发生改变
+    // 字符串的方法
+//    var str = "hello12";
+//    //str.replace("e","w");
+//    //str.replace(/\d/g,"8");
+//    str.replace(/\d/g,function () {
+//        // 1.正则捕获几次，那么 回调函数执行几次
+//        // 2. return 出的内容会对捕获到的内容进行替换
+//        // 3. arguments 和正则捕获的内容很相似
+//    });
+    // match : 捕获到的内容返回值是一个数组；
+    // 在正则有g修饰时，返回一个数组，并且小正则不对其进行捕获；
+    // 没有g修饰时，和exec捕获结果是一样的；
+//    var  str = "12.99"
+//    var  reg = /[1-9]\d+(\.\d+)?/g;
+//
+////    console.log(reg.exec(str));
+//    console.log(str.match(reg));
+
+
+    // 数据类型检测封装 ：
+
+    //js盒子模型
+
+
+    // 1. 8个属性
+
+    // 1.clientWidth clientHeight  : 内容 宽度+ 左右的padding；(是一个值，并且不带单位,如果是百分比，那么会默认进行计算后的结果)；
+
+    // 2.clientTop  clientLeft  : 上边框的高度，左边框的宽度；
+
+    // 3. offsetWidth : clientWidth + 左右边框的宽度
+    // offsetHeight : clientHeight + 上下边框的高度
+
+    // 4. scrollWidth :
+    // 在没有内容溢出的情况： 等于clientWidth
+    // scrollHeight在没有内容溢出的情况： 等于clientWidth
+    // 有溢出的情况下： 一个左padding + 内容的真实宽度
+    // 一个上padding + 内容的真实高度
+
+    // 获取具体样式
+    // 元素.style.attr : 只能获取行内设置的样式
+
+    // getComputedStyle  : window下一个获取浏览器计算样式的一个方法
+
+    // 在IE8 及以下没有这个方法，但是有currentStyle
+//    function getCss(curEle,attr) {
+//        var val;
+//        if("getComputedStyle" in window){
+//            val = getComputedStyle(curEle)[attr];
+//        }else{
+//            if(attr === "opacity"){
+//                var  value = curEle.currentStyle["filter"];
+//                var  reg = /\d+(\.\d+)?/g;
+//                val = reg.exec(value)/100;
+//            }else{
+//                val= curEle.currentStyle[attr];
+//            }
+//
+//        }
+//        val = parseFloat(val);
+//        return val;
+//
+//    }
+    console.log(utils.getCss(oBox, "opacity"));
+
+
+</script>
+</body>
+</html>

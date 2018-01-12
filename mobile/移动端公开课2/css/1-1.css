@@ -1,0 +1,23 @@
+.outer{
+    width:300px;
+    height:300px;
+    margin:30px auto;
+    border: 1px solid lightblue;
+}
+.outer .inner{
+    margin:20px auto;
+    width:100px;
+    height:100px;
+    text-align: center;
+    line-height: 100px;
+    background: lightgreen;
+    font-size: 18px;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear ;
+    -ms-transition: all 1s linear;
+    -o-transition: all 1s linear ;
+    transition: all 1s linear ;
+}
+.outer:hover .inner{
+    transform: rotate(360deg);
+}

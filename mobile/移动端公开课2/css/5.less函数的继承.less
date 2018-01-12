@@ -1,0 +1,29 @@
+
+/*
+继承： .类A:extend(.类B)
+*/
+.pub{
+  width:100px;
+  height:100px;
+  background: yellow;
+}
+//.outer:extend(.pub){
+//   background: red;
+//}
+.public{
+  opacity:0.8;
+  filter:alpha(opacity=80);
+
+}
+
+.outer{
+  .mark{
+    text-align:center;
+  }
+  //&:extend(.pub,.public);
+  //.inner:extend(.mark){}// 不允许直接继承当前作用下的函数
+
+  .inner:extend(.outer .mark){}
+}
+
+// 所以一般情况下，公共的样式类一般在真实项目中会放在最外层；

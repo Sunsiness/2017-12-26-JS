@@ -1,0 +1,16 @@
+/*
+继承： .类A:extend(.类B)
+*/
+.pub {
+  width: 100px;
+  height: 100px;
+  background: yellow;
+}
+.public {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.outer .mark,
+.outer .inner {
+  text-align: center;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. 通过in方法，来判断是否兼容；
+    // 2. 元素的属性名如果是undefined，说明不兼容或不存在；
+    // getComputedStyle
+    if("getComputedStyle" in window){
+
+    };
+    if("previousElementSibling" in  window){
+
+    }
+    function getBro(curEle) {
+        // previousElementSibling 在元素对象中是否存在，存在返回true，不存在返回false
+        if("previousElementSibling" in  curEle){
+
+        }
+        if(curEle.previousElementSibling){
+
+        }
+    }
+
+    // 3.try  catch
+    try{
+         Array.prototype.slice.call()
+    }catch(e){
+        // for 循环
+    }
+    // 4.navigator.userAgent: 浏览器的版本信息
+    var reg = /MSIE 8.0/;
+    if(reg.test(navigator.userAgent)){
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

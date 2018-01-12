@@ -1,0 +1,7 @@
+.clomun(@i) when(@i<=4){
+  .box@{i}{
+     width : unit(@i*10,%);
+  }
+  .clomun(@i+1);
+};
+.clomun(1);
