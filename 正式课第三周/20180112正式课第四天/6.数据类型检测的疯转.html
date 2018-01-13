@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1.typeof:
+    // 1.null -->"object"
+    // 2. 不能对象数据中具体数据类型
+    // 3. 不能检测通过实例创建的基本数据类型值
+    // 2.instanceof:
+    //1.不能检测通过字面量创建的基本数据类型值
+    // 2. 只要在当前实例的原型链上都返回true；
+
+
+    // 3.constructor :
+    //
+
+    // 4.Object.prototype.toString.call()
+//    function A() {
+//
+//    };
+//
+//    A.prototype = {
+//
+//
+//    }
+//    var a = new A;
+//    console.log(a.constructor);// "Object";
+
+    //    var  ary = [];
+//    console.log(ary.constructor === Array);// true
+//    var  num  = 1;
+//    console.log(typeof num);// "object"
+//    console.log(num instanceof Number);// true
+//    var ary = [];
+
+    (function () {
+        var  obj ={
+            "isNumber" : "Number",
+            "isString" : "String",
+            "isBoolean" : "Boolean",
+            "isNull" : "Null",
+            "isUndefined" : "Undefined",
+            "isObject" : "Object",
+            "isFunction" : "Function",
+            "isArray" : "Array",
+            "isRegExp" : "RegExp"
+        };
+        var  checkType = {};
+        for(var key in obj){
+            checkType[key] = (function () {
+                // 不销毁
+                var name = obj[key];
+                return function (val) {
+                    var reg = new RegExp("\\[object "+name+"\\]");// /\[object Number\]/
+                    return reg.test(Object.prototype.toString.call(val))// "[object Array]"
+                }
+            })()
+        }
+        window.checkType = checkType;
+
+    })()
+    console.log(checkType.isNumber(12));// 12
+    console.log(checkType.isNumber({}));
+    console.log(checkType.isObject({}));// true
+
+
+</script>
+</body>
+</html>

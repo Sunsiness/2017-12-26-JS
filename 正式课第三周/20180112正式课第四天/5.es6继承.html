@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //class ： 定义一个类；
+//    function A(num) {
+//        var  a = "你好";
+//        this.x =num;
+//        this.y = 10;
+//    }
+    // 1. es6类不可以被重新声明两次；只能出现一次
+    // 2. es5类中的代码在es6中都放在constructor这个函数中
+    // 3. es6类原型代码也放在class A 这个类中；
+//    class A{
+//        constructor(num){
+//            var  a = "你好";
+//            this.x =num;
+//            this.y = 10;
+//        }
+//        getX(){
+//            console.log(this.x);
+//        }
+//
+//    }
+//    function A() {
+//        this. x = 100;
+//    }
+    var a = new A(0);
+    console.log(a);
+    class B extends A{// 类B继承类A私有属性和公有属性；
+        constructor(num){
+            super(num);
+            this.z = 10;
+        }
+        getZ(){
+
+        }
+    };
+    var  b =new B(1);
+    console.log(b);
+
+
+
+</script>
+</body>
+</html>

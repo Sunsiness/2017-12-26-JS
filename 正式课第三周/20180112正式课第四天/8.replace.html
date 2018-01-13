@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // replace
+    var  str = "12hello12world56world";
+//    var newStr = str.replace("12","34").replace("12","34");
+//    console.log(str);// "12hello12world"
+//    console.log(newStr);
+    // 第一个参数正则
+    //var newStr=str.replace(/\d+/g,"34");
+//    console.log(newStr);
+
+    // 第一个参数是正则 ，第二个参数是回调函数
+
+    var newStr=str.replace(/\d+/g,function () {
+        // 1. 正则捕获几次，函数执行几次
+        // 2.arguments : 和正则捕获的内容是很相似的；
+        //3. return + 内容  : return出的内容就是要替换的内容；
+//        console.log(arguments);
+//        return  666;
+    })
+    console.log(newStr);
+</script>
+</body>
+</html>

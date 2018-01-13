@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //
+    var obj = {a:1,b:2}
+    // var o = obj;
+//    var  o = new Object(obj);
+
+//    console.log(o);
+    // Object.create : 创建一个对象
+
+//    var  newObj = Object.create(obj);// 让newObj 的__proto__指向传进来的实参；
+//    console.log(newObj);
+    function A() {
+        this.y = 10;
+    };
+    A.prototype.getA = function () {
+        console.log("a");
+    }
+    function B() {
+        A.call(this)
+    };
+    // 通过call继承，让类B的实例继承类A的私有属性；Object.create继承类A的公有属性；
+    B.prototype = Object.create(A.prototype);// 继承公有属性
+     var  b = new B;
+    console.log(b);
+    b.getA()
+
+
+
+</script>
+</body>
+</html>

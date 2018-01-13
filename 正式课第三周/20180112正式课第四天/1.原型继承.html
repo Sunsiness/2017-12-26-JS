@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function A() {
+        this.getA = function () {
+            console.log("a")
+        }
+    }
+    A.prototype.getX = function () {
+        console.log(1)
+    }
+    // 创建A的一个实例；__proto__
+    var  a = new  A;
+    a.getX()
+    function B() {
+        // 类中的this---> 实例；
+
+        this.a = 100;
+//        this.getX = function () {
+//
+//        }
+
+    };
+    B.prototype = new Array;
+
+    // B.prototype : 1.constructor  2.__proto__
+//    B.prototype.getX = function () {
+//
+//    }
+   // B.prototype = A.prototype;// b通过__proto__找到B的原型，只不过B的原型已被A的原型覆盖；继承了A的公有属性
+    //
+//    B.prototype = new A;// 把A的实例赋值给B的原型，继承了A的私有属性和公有属性，这种继承方式--> "原型继承"
+
+    var b =new B;
+    b.pop();
+
+//    b.getX();
+
+//    var  ary = [12,89,0,8];
+//    ary.splice(2,1);// [0]
+//    function splice() {
+//        // this
+//    }
+
+
+</script>
+</body>
+</html>
