@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div{
+            width:100px;
+            height:100px;
+            padding:10px;
+            background: lightseagreen;
+            margin:30px;
+            border: 10px solid #cccccc;
+            /*opacity: 0.4;*/
+            /* 在IE8及以下，opacity是不兼容的；*/
+            /*filter : alpha(opacity=40);*/
+            /*box-sizing:inherit;*/
+
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script>
+    // 1. 设置
+    var div = document.getElementById("div");
+
+//    div.style.width = "200px";
+//    div.style.opacity = 0.5;
+//    div.style.filter = "alpha(opacity=50)";
+    function getCss(curEle,attr) {// curEle: 元素  attr :属性
+        var  val = "";
+        if("getComputedStyle" in  window){
+            return getComputedStyle(curEle)[attr];
+        }else{
+            if(attr === "opacity"){
+                var  curVal = curEle.currentStyle["filter"];
+                var  reg = /alpha\(opacity=(\d+(\.\d+)?)\)/;
+                val =parseFloat(reg.exec(curVal)[1]/100);
+            }else{
+                val =curEle.currentStyle[attr]
+            }
+
+        };
+        return parseFloat(val);
+    };
+
+    function setCss(curEle,attr,value) {
+        if(attr==="opacity"){
+            curEle.style["opacity"] = value;
+            curEle.style["filter"] = "alpha(opacity="+value*100+")";
+            return;
+        }
+        var  reg = /(width|height|(margin|padding)?(left|right|bottom|top)?)/i;
+        if(reg.test(attr)){
+            if(!isNaN(value)){
+                value = value + "px";
+            }
+        }
+        curEle.style[attr] = value;
+    }
+//    setCss(div,"opacity",0.5);
+    setGroupCss(div,{width:300,height:300,opacity:0.3})
+
+    function setGroupCss(curEle,options) {
+        if(Object.prototype.toString.call(options)==="[object Object]"){
+            for(var key  in options){
+                setCss(curEle,key,options[key]);
+            }
+        }
+    };
+    function css() {
+        // 利用了参数的个数，参数的数据类型；
+        var  len = arguments.length,
+            curEle = arguments[0],
+            attr = arguments[1],
+            val  = arguments[2];
+
+        if(len ===3){
+            setCss(curEle,attr,val);
+            return;
+        }
+        if(len ===2 && typeof attr==="object"){
+            setGroupCss(curEle,attr);
+            return;
+        }
+        return getCss(curEle,attr);
+    }
+    css(div,"width")
+    css(div,"width",500)
+    css(div,{width:500,height:200,border:"1px solid #ccc"})
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 只继承私有
+    function A() {
+        this.x = 12;
+    }
+    var  a = new A;
+    A.prototype.getX = function () {
+
+    }
+    function B() {
+        this.x =100;
+        A.call(this)// :A调用call 方法，让类A的this指向类B的实例；相当于把类A的私有属性给类B的实例；
+    };
+    var b = new B;// 对象中属性名是不能重复的；
+    b.getX();// b.getX is not a function
+    console.log(b);// {x:12}
+</script>
+</body>
+</html>

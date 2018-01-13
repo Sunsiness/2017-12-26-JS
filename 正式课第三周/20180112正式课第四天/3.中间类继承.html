@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function A() {
+//         // arguments
+////        arguments.sort();
+//        arguments.__proto__  = new Array;
+        arguments.__proto__  = Array.prototype;
+        // arguments.__proto__  在IE10 及以下不兼容
+        arguments.sort(function (a,b) {
+            return a-b;
+        });
+//        console.log(arguments);
+//
+//
+    };
+    A(12,8,99,66,37)
+//    var  obj = {name:"zhufeng",age:9};
+//    obj.__proto__ = Array.prototype;
+//    delete  obj.age
+//    obj.pop();
+//    console.log(obj);
+
+
+</script>
+</body>
+</html>

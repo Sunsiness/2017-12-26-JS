@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 正则 靠小括号分组
+
+    // 1. 改变正则的优先级
+
+//    var  reg = /^(1[89]|[2-5]\d|6[0-5])$/;
+//    reg.test("18");
+    // 2. 分组的引用
+
+//    var reg = /(\d)\1(\.\d+)\1/;// \1 : 代表和第一个分组出现一模一样的内容
+//
+//    console.log(reg.test("89"));// false
+//    console.log(reg.test("88"));// true
+
+    // 3.不仅大正则要进行捕获，小正则也要对其进行捕获；
+    //?: 只匹配不捕获；
+
+    var  reg = /\d+(?:\.\d+)?/;
+    console.log(reg.exec("66.8px"));//["66.8", ".8", index: 0, input: "66.8"]
+
+
+</script>
+</body>
+</html>
