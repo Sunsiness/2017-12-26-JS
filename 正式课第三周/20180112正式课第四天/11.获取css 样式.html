@@ -50,6 +50,7 @@
             if(attr === "opacity"){
                 var  curVal = curEle.currentStyle["filter"];
                 var  reg = /alpha\(opacity=(\d+(\.\d+)?)\)/;
+                console.log(reg.exec(curVal));
                 val =parseFloat(reg.exec(curVal)[1]/100);
             }else{
                 val =curEle.currentStyle[attr]
