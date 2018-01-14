@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width:100%;
+
+        }
+
+        div img{
+            width:100%;
+        }
+        #btn{
+            display: none;
+            width:100px;
+            height:100px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50%;
+            background: lightgreen;
+            position: fixed;
+            bottom:30px;
+            right:30px;
+            cursor: pointer;
+        }
+        #left{
+            opacity: 0;
+            width:50px;
+            height:240px;
+            background-color: teal;
+            position: fixed;
+            left:30px;
+            bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+    <img src="1.png" alt="">
+
+</div>
+<div id="btn">回到顶部</div>
+<div id="left"></div>
+<script src="utils.js"></script>
+<script>
+    var btn = document.getElementById("btn");
+     var left = document.getElementById("left");
+//    btn.onclick = function(){
+//        utils.win("scrollTop",0)
+//    }
+
+    btn.onclick = function () {
+        //
+
+        var timer = setInterval(function () {
+            // 这里每执行一次，首先先获取一下当前最新scrollTop 卷去的高度，让这个高度-10；
+
+            var winH = utils.win("scrollTop");
+            if(winH -10 < 0){
+                clearInterval(timer)
+            }
+            utils.win("scrollTop", winH-10)
+        },5)
+    }
+    var winH = utils.win("clientHeight");
+
+    window.onscroll = function () {
+
+        var  curT = utils.win("scrollTop");
+        if(curT>winH){
+            btn.style.display = "block";
+            var  b = utils.getCss(left,"opacity");
+            if(b<1){
+                var  a = setInterval(function () {
+                    var curP = utils.getCss(left,"opacity");
+                    var  newP  = curP + 0.1;
+                    console.log(newP);
+                    if(newP >=1){
+                        clearInterval(a);
+                        utils.setCss(left,"opacity",1);
+                        return;
+                    }
+                    utils.setCss(left,"opacity",newP)
+                },500)
+            }
+
+        }else{
+            btn.style.display = "none";
+
+
+        }
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

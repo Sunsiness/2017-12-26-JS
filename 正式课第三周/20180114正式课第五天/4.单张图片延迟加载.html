@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width:300px;
+            height:300px;
+            margin:1000px auto;
+        }
+        #box img{
+            opacity: 0.3;
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="img/default.jpg" trueImg="img/10.jpg" alt="">
+</div>
+<script src="utils.js"></script>
+<script>
+    // 加载的临界条件；
+    // 当盒子的下边框和浏览器窗口的下边框重合时，让真实图片开始加载；
+    var  box= document.getElementById("box");
+    var  img = box.getElementsByTagName("img")[0];
+    // 计算当前盒子的上偏移量（到body内边框的距离）
+    var  boxTop = utils.offset(box).t;
+
+    // 盒子自身的高度
+    var boxH = box.offsetHeight;
+    // 获取当前浏览器可视窗口的高度；
+    var  winH = utils.win("clientHeight");
+    window.onscroll = function () {
+        var  winT = utils.win("scrollTop");
+        // 当浏览器纵向滚动条卷去的高度+ 浏览器可视窗口的高度 大于盒子底边框距离body的距离时，开始加载图片；
+        if(winT + winH > boxTop + boxH){
+            var  trueAddress = img.getAttribute("trueImg");
+            // oImg 这里用于校验当前这个图片的地址是否正确的；
+            var oImg = document.createElement("img");
+            oImg.src = trueAddress;
+            // 图片标签的onload属性是函数，这个函数当这个图片成功加载图片后，这个onload对应的函数才会执行；证明这个路径是没有问题的；
+            oImg.onload = function () {
+                img.src = trueAddress;
+                fadeIn(img);
+                oImg = null;
+            }
+            // 把真实图片地址赋值给img的src属性；
+//            img.src = trueAddress;
+        }
+    }
+// 逐渐增强透明度
+  function fadeIn(curImg) {
+        var  timer=setInterval(function () {
+            // 先获取当前透明度
+            var opa = utils.getCss(curImg,"opacity");
+            var curOpa = opa + 0.1;
+            if(curOpa>=1){
+                utils.setCss(curImg,"opacity",1);
+                clearInterval(timer);
+                return;
+            }
+            utils.setCss(curImg,"opacity",curOpa);
+        },100)
+  };
+
+    console.log(boxTop);
+
+
+</script>
+</body>
+</html>

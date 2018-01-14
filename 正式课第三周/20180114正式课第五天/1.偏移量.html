@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #outer{
+            position:relative;
+            width:300px;
+            height:300px;
+            background: lightseagreen;
+            margin:30px auto;
+            border: 10px solid lightgreen;
+        }
+        #inner{
+            position: relative;
+            width:200px;
+            height:200px;
+            background: lightblue;
+            margin:auto;
+            border:10px solid lightcyan;
+        }
+        #center{
+            width:100px;
+            height:100px;
+            background: lightyellow;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+        <div id="center"></div>
+    </div>
+    <!--快点背吧-->
+    <div></div>
+</div>
+<div></div>
+<script>
+    // 1. 父亲节点 ： ParentNode ；不会随着css属性发生改变
+
+    var inner= document.getElementById("inner");
+    var outer= document.getElementById("outer");
+    var center= document.getElementById("center");
+//    oBox.parentNode()
+//    {parentNode:[]}
+
+    // 1. offsetParent: 在没有特殊情况处理前提下，当前页面所有盒子的父级参照物都是body这个元素；如果给父级的某个元素加上position:(relative,absolute,fixed..)，那么会影响当前这个元素所有的子孙元素的父级参照物指向这个元素；
+    //
+
+
+//    console.log(inner.offsetParent);// body
+//    console.log(outer.offsetParent);// body
+//    console.log(center.offsetParent);// body
+    // 2.偏移量： 左偏移 上偏移
+    // 当前盒子的外边框距离父级参照物的内边框的距离
+    // 上偏移： offsetTop : 盒子的上外边框距离父级参照物的下内边框的距离；
+//    console.log(outer.offsetTop);
+//    console.log(inner.offsetTop);
+    // 左偏移： offsetLeft : 盒子的左边框距离父级参照物的左内边框的距离；
+//    console.log(outer.offsetLeft);
+//    console.log(inner.offsetLeft);
+//    console.log(inner.offsetLeft);
+//    console.log(center.offsetLeft);
+    // 当前盒子距离body的左偏移和上偏移；
+  function offset(curEle) {
+     var  p = curEle.offsetParent;
+     var  l = curEle.offsetLeft;
+     var  t = curEle.offsetTop;
+     // body的父级参照物是null；
+      // 如果当前元素的nodeName 是BODY，则终止当前循环；
+     while(p.nodeName !== "BODY"){
+         // 在真核IE8中，元素的offsetLeft 会把父级参照物边框算进去；
+         //navigator.userAgent : 当前浏览器的版本信息；
+         var reg = /MSIE 8.0/;
+         if(!reg.test(navigator.userAgent)){
+             // 在iE8 中，不需要执行此处代码；
+             l+= p.clientLeft;
+             t+=p.clientTop;
+         }
+         l+= p.offsetLeft;
+         t+= p.offsetTop;
+         p = p.offsetParent;
+
+     };
+     return {l :l,t:t};
+  };
+    console.log(offset(center).l);
+
+
+</script>
+</body>
+</html>
